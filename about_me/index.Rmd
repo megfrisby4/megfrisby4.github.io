@@ -1,0 +1,16 @@
+---
+
+output: html_document
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+####Hi my name is Big Bird and I live in Sesame Street.
+
+My favorite things are to play with markdown formatting. 
+
+See I can make **bold text** because I am a big boy. 
