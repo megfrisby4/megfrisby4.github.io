@@ -5,7 +5,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
 ```
 
 
@@ -14,3 +14,11 @@ knitr::opts_chunk$set(echo = TRUE)
 My favorite things are to play with markdown formatting. 
 
 See I can make **bold text** because I am a big boy. 
+```{r}
+knitr::include_graphics(path = "../media/sheep.jpeg")
+
+```
+```{r}
+
+```
+here is [my cv](http://gzahn.gitgub.io/media.cv.pdf)
