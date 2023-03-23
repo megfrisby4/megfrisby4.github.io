@@ -1,7 +1,7 @@
 ---
-
+title:""
 output: html_document
-
+date:""
 ---
 
 ```{r setup, include=FALSE}
@@ -21,4 +21,4 @@ knitr::include_graphics(path = "../media/sheep.jpeg")
 ```{r}
 
 ```
-here is [my cv](http://gzahn.gitgub.io/media.cv.pdf)
+
