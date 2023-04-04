@@ -1,0 +1,411 @@
+## Complete genomes: Mononegavirales (taxid 10239)
+"Genome"	"Accession"	"RefSeq type"	"Source information"	"Number of segments"	"Genome length"	"Number of proteins"	"Genome Neighbors"	"Host"	"Date completed"	"Date updated"
+Artoviridae
+    Beihai barnacle virus 8	NC_032430	complete	strain:BHTH14652	-	12395 nt	4	-	invertebrates	12/29/2016	08/13/2018	
+    Beihai rhabdo-like virus 1	NC_032555	complete	strain:BHTSS15727	-	10551 nt	3	-	invertebrates	01/03/2017	08/13/2018	
+    Beihai rhabdo-like virus 2	NC_032558	complete	strain:BHTSS7258	-	12016 nt	4	-	invertebrates	01/03/2017	08/13/2018	
+    Hubei rhabdo-like virus 5	NC_055115	incomplete	strain:WHSFII19440	-	7043 nt	1	-	invertebrates	06/01/2021	06/07/2021	
+    Hubei rhabdo-like virus 6	NC_055114	incomplete	strain:QTM24798	-	8436 nt	2	-	invertebrates	06/01/2021	06/07/2021	
+    Hubei rhabdo-like virus 8	NC_055113	incomplete	strain:QTM19395	-	6367 nt	1	-	invertebrates	06/01/2021	06/07/2021	
+    Pteromalus puparum negative-strand RNA virus 1	NC_038269	complete	isolate:1	-	12230 nt	5	-	invertebrates	08/24/2018	08/24/2018	
+Bornaviridae
+    Orthobornavirus avisaquaticae
+          Aquatic bird bornavirus 1	NC_029642	complete	isolate:062-CG	-	9006 nt	6	4	vertebrates	03/10/2016	08/23/2016	
+          Aquatic bird bornavirus 2	NC_030691	complete	isolate:duck-89	-	8904 nt	6	4	vertebrates	08/01/2016	08/13/2018	
+    Orthobornavirus bornaense
+          Borna disease virus 1	NC_001607	complete	strain:V	-	8910 nt	6	46	human, vertebrates	01/06/1994	08/30/2016	
+          Borna disease virus 2	NC_030692	complete	strain:No/98	-	8908 nt	6	46	human, vertebrates	09/19/2001	08/23/2016	
+    Orthobornavirus serini
+          Canary bornavirus 1	NC_030690	complete	isolate:#7293	-	8930 nt	6	-	vertebrates	08/01/2016	08/13/2018	
+          Canary bornavirus 2	NC_027892	complete	isolate:#15864	-	8957 nt	6	-	vertebrates	09/30/2015	08/23/2016	
+          Canary bornavirus 3	NC_024296	complete	isolate:VS-4424	-	8914 nt	6	-	vertebrates	06/13/2014	08/13/2018	
+    Estrildid finch bornavirus 1	NC_038268	incomplete	isolate:VS-4707	-	5572 nt	6	-	vertebrates	08/24/2018	08/24/2018	
+    Jungle carpet python virus	NC_039013	complete	isolate:1	-	8804 nt	6	-	vertebrates	08/24/2018	08/24/2018	
+    Loveridges garter snake virus 1	NC_024778	complete	strain:251327	-	8884 nt	6	-	vertebrates	09/04/2014	08/13/2018	
+    Orthobornavirus alphapsittaciforme
+          Parrot bornavirus 1	NC_039189	complete	strain:M25	-	8902 nt	6	11	vertebrates	08/24/2018	08/24/2018	
+          Parrot bornavirus 2	NC_028106	complete	isolate:bil	-	8914 nt	6	11	vertebrates	10/30/2015	08/14/2018	
+          Parrot bornavirus 4	NC_030688	complete	isolate:6758	-	8915 nt	6	11	vertebrates	08/01/2016	08/13/2018	
+          Parrot bornavirus 7	NC_030689	complete	isolate:16667a	-	8901 nt	6	11	vertebrates	08/01/2016	08/14/2018	
+    Parrot bornavirus 5	NC_039190	incomplete	strain:2014-A	-	8973 nt	6	4	vertebrates	08/24/2018	08/24/2018	
+    Southwest carpet python virus	NC_039014	complete	isolate:1	-	8810 nt	6	-	vertebrates	08/24/2018	08/24/2018	
+    Variegated squirrel bornavirus 1	NC_030701	complete	isolate:squirrel brain	-	8798 nt	6	24	human, vertebrates	07/09/2015	08/13/2018	
+    Wuhan sharpbelly bornavirus	NC_055169	complete	strain:DSYS4497	-	8989 nt	6	-	vertebrates	06/01/2021	06/07/2021	
+Filoviridae
+    Bombali ebolavirus	NC_039345	complete	isolate:Bombali ebolavirus/Mops condylurus/SLE/2016/PREDICT_SLAB000156	-	19043 nt	9	5	vertebrates	09/07/2018	10/29/2018	
+    Bundibugyo ebolavirus	NC_014373	complete	isolate:Bundibugyo virus/H.sapiens-tc/UGA/2007/Butalya-811250	-	18940 nt	9	24	human, vertebrates	08/09/2010	11/07/2018	
+    Lloviu cuevavirus	NC_016144	complete	isolate:Lloviu virus/M.schreibersii-wt/ESP/2003/Asturias-Bat86	-	18927 nt	9	1	vertebrates	11/03/2011	08/13/2018	
+    Marburg marburgvirus	-	complete	isolate:Ravn virus/H.sapiens-tc/KEN/1987/Kitum Cave-810040	2	38225 nt	14	-	human, vertebrates	09/05/2014	08/13/2018	
+          Marburg marburgvirus     (19114 nt)     NC_024781     proteins: 7     neighbors: 89
+          Marburg marburgvirus     (19111 nt)     NC_001608     proteins: 7     neighbors: 89
+    Mengla dianlovirus	NC_055510	complete	isolate:Rousettus-wt/CHN/2015/Sharen-Bat9447-1	-	18300 nt	7	-	vertebrates	06/01/2021	06/07/2021	
+    Reston ebolavirus	NC_004161	complete	isolate:Reston virus/M.fascicularis-tc/USA/1989/Philippines89-Pennsylvania	-	18891 nt	9	20	human, vertebrates	09/04/2002	08/13/2018	
+    Sudan ebolavirus	NC_006432	complete	isolate:Sudan virus/H.sapiens-tc/UGA/2000/Gulu-808892	-	18875 nt	9	23	human, vertebrates	11/15/2004	08/13/2018	
+    Tai Forest ebolavirus	NC_014372	complete	isolate:Tai Forest virus/H.sapiens-tc/CIV/1994/Pauleoula-CI	-	18935 nt	9	2	human, vertebrates	08/05/2010	08/13/2018	
+    Wenling frogfish filovirus	NC_055175	complete	strain:XYHYS28627	-	17221 nt	10	-	vertebrates	06/01/2021	06/07/2021	
+    Wenling thamnaconus septentrionalis filovirus	NC_055176	complete	strain:LQMMTII17328	-	14280 nt	6	-	vertebrates	06/01/2021	06/07/2021	
+    Zaire ebolavirus	NC_002549	complete	isolate:Ebola virus/H.sapiens-tc/COD/1976/Yambuku-Mayinga	-	18959 nt	9	1581	human, vertebrates	02/10/1999	08/13/2018	
+Lispiviridae
+    Hubei odonate virus 10	NC_032944	complete	strain:QTM133243	-	14440 nt	6	-	invertebrates	01/17/2017	08/13/2018	
+    Hubei rhabdo-like virus 3	NC_032929	complete	strain:QCM135517	-	12303 nt	6	-	invertebrates	01/17/2017	08/13/2018	
+    Lishi Spider Virus 2	NC_031259	complete	strain:LSZZ-4	-	9924 nt	3	-	invertebrates	09/27/2016	08/13/2018	
+    Sanxia water strider virus 4	NC_031088	complete	strain:SXSSP12	-	12930 nt	4	-	invertebrates	09/23/2016	08/13/2018	
+    Tacheng Tick Virus 6	NC_031270	complete	strain:TCRP-2	-	10787 nt	4	-	invertebrates	09/27/2016	08/13/2018	
+    Wuchang romanomermis nematode virus 2	NC_033436	complete	strain:WCLSXC55347	-	9903 nt	5	-	invertebrates	01/23/2017	08/13/2018	
+Mymonaviridae
+    Hubei rhabdo-like virus 4	NC_032783	complete	strain:arthropodmix13990	-	10003 nt	3	-		01/17/2017	08/13/2018	
+    Sclerotimonavirus sclerotiniae
+          Sclerotinia sclerotiorum negative-stranded RNA virus 1	NC_025383	complete	strain:AH98	-	10002 nt	6	-		10/30/2014	08/13/2018	
+          Sclerotinia sclerotiorum negative-stranded RNA virus 3	NC_026732	complete	isolate:IL1	-	10009 nt	6	-	fungi	03/22/2015	08/13/2018	
+    Sclerotinia sclerotiorum negative-stranded RNA virus 4	NC_043483	complete	isolate:257	-	9707 nt	5	-		06/28/2019	06/28/2019	
+Nyamiviridae
+    Beihai rhabdo-like virus 3	NC_043486	incomplete	strain:BHNXC39077	-	10398 nt	5	-	invertebrates	06/28/2019	06/28/2019	
+    Beihai rhabdo-like virus 4	NC_032543	complete	strain:BHJP58499	-	10714 nt	3	-	invertebrates	01/03/2017	08/13/2018	
+    Beihai rhabdo-like virus 5	NC_032544	complete	strain:BHJP63888	-	9404 nt	4	-	invertebrates	01/03/2017	08/13/2018	
+    Beihai rhabdo-like virus 6	NC_032541	complete	strain:BHJJX49420	-	9663 nt	4	-	invertebrates	01/03/2017	08/13/2018	
+    Nyavirus midwayense	NC_012702	complete	isolate:RML47153	-	11752 nt	6	-	invertebrates	05/19/2009	08/13/2018	
+    Nyavirus nyamaniniense	NC_012703	complete	isolate:tick 39	-	11631 nt	6	1	invertebrates	05/19/2009	08/13/2018	
+    Orinoco virus	NC_043485	incomplete	strain:UW1	-	9591 nt	5	-	invertebrates	06/28/2019	06/28/2019	
+    Sierra Nevada virus	NC_024376	complete	-	-	11840 nt	6	-	invertebrates	06/24/2014	08/13/2018	
+    Socyvirus heteroderae	NC_024702	complete	-	-	11367 nt	5	-	invertebrates	08/21/2014	08/13/2018	
+    Wenling crustacean virus 12	NC_032793	complete	strain:WLJQ47777	-	7447 nt	3	-	invertebrates	01/17/2017	08/13/2018	
+    Wenzhou Crab Virus 1	NC_031275	complete	strain:RBX2	-	9591 nt	3	-	invertebrates	09/27/2016	08/13/2018	
+    Wenzhou tapeworm virus 1	-	complete	strain:SGJSC14943	2	10698 nt	5	-	invertebrates	01/23/2017	08/13/2018	
+          Wenzhou tapeworm virus 1     (5990 nt)     NC_033450     proteins: 1
+          Wenzhou tapeworm virus 1     (4708 nt)     NC_033451     proteins: 4
+Paramyxoviridae
+    Achimota virus 1	NC_025403	complete	-	-	15624 nt	8	-	vertebrates	10/31/2014	08/13/2018	
+    Achimota virus 2	NC_025404	complete	-	-	15504 nt	8	-	vertebrates	10/31/2014	08/13/2018	
+    Alston virus	NC_055508	complete	isolate:Alstonville	-	15270 nt	9	-	vertebrates	06/01/2021	06/07/2021	
+    Antarctic penguin virus A	NC_039017	complete	isolate:001	-	14926 nt	6	-	vertebrates	08/24/2018	08/24/2018	
+    Antarctic penguin virus B	NC_039018	complete	isolate:002	-	14931 nt	6	-	vertebrates	08/24/2018	08/24/2018	
+    Antarctic penguin virus C	NC_039019	complete	isolate:003	-	15017 nt	6	-	vertebrates	08/24/2018	08/24/2018	
+    Avian metaavulavirus 11	NC_025407	complete	serotype:11; isolate:common_snipe/France/100212/2010	-	17412 nt	7	-	vertebrates	10/31/2014	08/13/2018	
+    Avian metaavulavirus 2	NC_039230	complete	strain:APMV-2/Chicken/California/Yucaipa/56	-	14904 nt	7	11	vertebrates	08/24/2018	08/24/2018	
+    Avian metaavulavirus 20	NC_040796	complete	serotype:20; isolate:APMV-20/gull/Kazakhstan/5976/2014	-	15954 nt	8	2	vertebrates	02/12/2019	04/22/2019	
+    Avian metaavulavirus 5	NC_025361	complete	strain:budgerigar/Kunitachi/74; serotype:5	-	17262 nt	8	1	vertebrates	10/27/2014	08/13/2018	
+    Avian metaavulavirus 6	NC_039194	complete	strain:APMV-6/Goose/FarEast/4440/2003	-	16236 nt	7	43	vertebrates	08/24/2018	08/24/2018	
+    Avian metaavulavirus 7	NC_025347	complete	strain:APMV-7/dove/Tennessee/4/75; serotype:7	-	15480 nt	6	-	vertebrates	10/27/2014	08/13/2018	
+    Avian metaavulavirus 8	NC_039195	complete	strain:goose/Delaware/1053/76	-	15342 nt	6	8	vertebrates	08/24/2018	08/24/2018	
+    Avian orthoavulavirus 1	NC_039223	complete	isolate:JSD0812	-	15192 nt	6	1140	vertebrates	08/24/2018	08/24/2018	
+    Avian orthoavulavirus 12	NC_025363	complete	isolate:Wigeon/Italy/3920_1/2005	-	15312 nt	6	2	vertebrates	10/27/2014	08/13/2018	
+    Avian orthoavulavirus 9	NC_025390	complete	strain:duck/New York/22/1978; serotype:9	-	15438 nt	6	-	vertebrates	10/31/2014	08/13/2018	
+    Avian paraavulavirus 3	NC_025373	complete	strain:turkey/Wisconsin/68	-	16182 nt	6	-	vertebrates	10/27/2014	08/13/2018	
+    Avian paramyxovirus 14	NC_039015	complete	serotype:14; isolate:APMV14/duck/Japan/11OG0352/2011	-	15444 nt	8	1	vertebrates	08/24/2018	08/24/2018	
+    Avian paramyxovirus 15	NC_034968	complete	isolate:APMV-15/calidris_fuscicollis/Brazil/RS-1177/2012	-	14964 nt	6	-	vertebrates	06/13/2017	08/13/2018	
+    Avian paramyxovirus 4	NC_019531	complete	strain:APMV-4/duck/Delaware/549227/2010; isolate:Delaware-4	-	15048 nt	6	37	vertebrates	11/21/2012	08/13/2018	
+    Avian paramyxovirus UPO216	NC_039016	complete	serotype:15; isolate:APMV-15/WB/Kr/UPO216/2014	-	15180 nt	6	2	vertebrates	08/24/2018	08/24/2018	
+    Avian paramyxovirus goose/Shimane/67/2000	NC_030231	complete	strain:goose/Shimane/67/2000	-	16146 nt	6	4	vertebrates	05/31/2016	08/13/2018	
+    Avian paramyxovirus penguin/Falkland Islands/324/2007	NC_025349	complete	isolate:penguin/Falkland Islands/324/2007	-	15456 nt	6	-	vertebrates	10/27/2014	08/19/2019	
+    Bat Paramyxovirus Epo_spe/AR1/DRC/2009	NC_038271	complete	isolate:BatPV/Epo_spe/AR1/DRC/2009	-	15378 nt	6	-	vertebrates	08/24/2018	08/24/2018	
+    Beilong virus	NC_007803	complete	-	-	19212 nt	11	6	vertebrates	03/16/2006	08/13/2018	
+    Bovine respirovirus 3	NC_002161	complete	-	-	15456 nt	6	41	vertebrates	01/27/2000	08/13/2018	
+    Canine morbillivirus	NC_001921	complete	isolate:Onderstpoort	-	15690 nt	7	147	vertebrates	07/21/1998	08/13/2018	
+    Caprine parainfluenza virus 3	NC_028362	complete	strain:JS2013	-	15618 nt	6	4		11/12/2015	08/13/2018	
+    Cedar virus	NC_025351	complete	isolate:CG1a	-	18162 nt	7	-	vertebrates	10/27/2014	08/13/2018	
+    Dolphin morbillivirus	NC_005283	complete	-	-	15702 nt	7	20	vertebrates	11/21/2003	08/13/2018	
+    Feline morbillivirus	NC_039196	complete	strain:761U	-	16050 nt	8	27	vertebrates	08/24/2018	08/24/2018	
+    Fer-de-lance virus	NC_005084	complete	strain:ATCC VR-895	-	15378 nt	8	11	vertebrates	09/05/2003	08/13/2018	
+    Ghana virus	NC_025256	complete	isolate:BatPV/Eid_hel/GH-M74a/GHA/2009	-	18530 nt	7	-	vertebrates	10/15/2014	08/13/2018	
+    Goose paramyxovirus SF02	NC_005036	complete	isolate:SF02	-	15192 nt	6	-		07/12/2003	08/13/2018	
+    Hendra henipavirus	NC_001906	complete	-	-	18234 nt	8	18	human, vertebrates	07/01/1998	08/13/2018	
+    Hervey virus	NC_055459	complete	isolate:BO6	-	15186 nt	-	-	vertebrates	06/01/2021	06/01/2021	
+    Human orthorubulavirus 2	NC_003443	complete	-	-	15646 nt	7	69	human, vertebrates	07/10/1991	08/13/2018	
+    Human parainfluenza virus 4a	NC_021928	complete	strain:M-25	-	17052 nt	7	43	human	08/06/2013	08/13/2018	
+    Human respirovirus 1	NC_003461	complete	strain:Washington 1964	-	15600 nt	10	54	human, vertebrates	03/15/2002	08/13/2018	
+    Human respirovirus 3
+          Human respirovirus 3	NC_001796	complete	-	-	15462 nt	8	435	human, vertebrates	09/01/1998	08/13/2018	
+          Simian Agent 10	NC_038270	complete	-	-	15462 nt	8	435	human, vertebrates	08/24/2018	08/24/2018	
+    J-virus	NC_007454	complete	-	-	18954 nt	11	-	vertebrates	10/05/2005	08/13/2018	
+    Mapuera orthorubulavirus	NC_009489	complete	isolate:BeAnn 370284	-	15486 nt	9	-	vertebrates	05/24/2007	08/13/2018	
+    Measles morbillivirus	NC_001498	complete	strain:Ichinose-B95a	-	15894 nt	8	677	human, vertebrates	12/09/1998	08/13/2018	
+    Menangle virus	NC_039197	complete	isolate:Australia/bat/2009/Cedar Grove	-	15516 nt	7	1	vertebrates	08/24/2018	08/24/2018	
+    Mojiang virus	NC_025352	complete	isolate:Tongguan1	-	18406 nt	9	-	vertebrates	10/27/2014	08/13/2018	
+    Mossman virus	NC_005339	complete	-	-	16650 nt	8	-	vertebrates	01/21/2004	08/13/2018	
+    Mount Mabu Lophuromys virus 1	NC_043539	complete	isolate:MOZ135_1	-	17940 nt	8	-	vertebrates	06/28/2019	06/28/2019	
+    Mount Mabu Lophuromys virus 2	NC_043540	complete	isolate:MOZ135_2	-	17220 nt	8	-	vertebrates	06/28/2019	06/28/2019	
+    Mumps orthorubulavirus	NC_002200	complete	strain:Miyahara	-	15384 nt	8	806	human, vertebrates	04/11/2000	01/02/2021	
+    Murine respirovirus	NC_001552	complete	strain:Ohita; isolate:M1	-	15384 nt	9	22	vertebrates	01/17/1998	08/13/2018	
+    Nariva virus	NC_017937	complete	-	-	15276 nt	8	-	vertebrates	05/18/2012	08/13/2018	
+    Nipah henipavirus	NC_002728	complete	-	-	18246 nt	9	61	human, vertebrates	06/01/2000	08/13/2018	
+    Parainfluenza virus 5	NC_006430	complete	strain:W3A	-	15246 nt	8	53	human, vertebrates	11/16/2004	02/01/2022	
+    Peste des petits ruminants virus	NC_006383	complete	isolate:Turkey 2000	-	15948 nt	8	137	human, vertebrates	10/15/2004	08/13/2018	
+    Phocine morbillivirus	NC_028249	complete	strain:PDV/Wadden_Sea.NLD/1988	-	15696 nt	8	7	vertebrates	11/04/2015	08/13/2018	
+    Pohorje myodes paramyxovirus 1	NC_055168	complete	isolate:TT02/05	-	20148 nt	9	1	vertebrates	06/01/2021	06/07/2021	
+    Porcine orthorubulavirus	NC_009640	complete	-	-	15180 nt	9	5	vertebrates	07/06/2007	08/13/2018	
+    Porcine respirovirus 1	NC_025402	complete	strain:S206N	-	15396 nt	9	11	vertebrates	10/31/2014	08/13/2018	
+    Rinderpest virus (strain Kabete O)	NC_006296	complete	strain:Kabete 'O' virulent	-	15882 nt	7	133	vertebrates	06/05/1996	08/13/2018	
+    Salem virus	NC_025386	complete	-	-	16698 nt	8	-	vertebrates	10/31/2014	08/13/2018	
+    Salmon aquaparamyxovirus	NC_025360	complete	isolate:ASPV/Yrkje371/95	-	16968 nt	9	3	vertebrates	10/27/2014	08/13/2018	
+    Simian orthorubulavirus	NC_006428	complete	isolate:Toshiba/Chanock	-	15450 nt	7	-	vertebrates	12/01/1993	08/13/2018	
+    Sosuga virus	NC_025343	complete	isolate:2012	-	15480 nt	7	-	human, vertebrates	10/27/2014	08/13/2018	
+    Tailam virus	NC_025355	complete	strain:TL8K	-	19152 nt	11	-	vertebrates	10/27/2014	08/13/2018	
+    Teviot virus	NC_039198	complete	isolate:Cedar Grove	-	15522 nt	7	2	vertebrates	08/24/2018	08/24/2018	
+    Tioman virus	NC_004074	complete	-	-	15522 nt	8	1	vertebrates	06/19/2001	08/13/2018	
+    Tuhoko virus 1	NC_025410	complete	-	-	15888 nt	7	-	vertebrates	10/31/2014	08/13/2018	
+    Tuhoko virus 2	NC_025348	complete	-	-	15432 nt	7	-	vertebrates	10/27/2014	08/13/2018	
+    Tuhoko virus 3	NC_025350	complete	-	-	15234 nt	7	-	vertebrates	10/27/2014	08/13/2018	
+    Tupaia paramyxovirus	NC_002199	complete	-	-	17904 nt	8	-	vertebrates	04/12/2000	08/13/2018	
+    bank vole virus 1	NC_055167	complete	strain:RP-12	-	16992 nt	7	-	vertebrates	06/01/2021	06/08/2021	
+Pneumoviridae
+    Avian metapneumovirus	NC_039231	complete	strain:LAH A	-	13373 nt	9	20	vertebrates	08/24/2018	08/24/2018	
+    Bovine orthopneumovirus
+          Bovine orthopneumovirus	NC_001989	complete	strain:ATue51908	-	15140 nt	11	38	vertebrates	12/17/1998	12/11/2020	
+          Bovine respiratory syncytial virus ATCC51908	NC_038272	complete	strain:ATCC 51908	-	15140 nt	11	38	vertebrates	08/24/2018	12/12/2020	
+          Respiratory syncytial virus	NC_001803	complete	strain:S2 ts1C	-	15191 nt	10	38	human, vertebrates	03/28/1997	08/13/2018	
+    Human metapneumovirus	NC_039199	complete	isolate:00-1	-	13350 nt	9	334	human, vertebrates	08/25/2018	08/25/2018	
+    Human orthopneumovirus	-	complete	-	2	30447 nt	22	-	human	08/13/2018	12/11/2020	
+          Human orthopneumovirus     (15222 nt)     NC_038235     proteins: 11     neighbors: 3161
+          Human orthopneumovirus     (15225 nt)     NC_001781     proteins: 11     neighbors: 3161
+    Murine orthopneumovirus
+          Pneumonia virus of mice J3666	NC_006579	complete	strain:J3666	-	14885 nt	12	2	vertebrates	12/30/2004	12/11/2020	
+          Pneumovirus dog/Bari/100-12/ITA/2012	NC_025344	complete	strain:dog/Bari/100-12/ITA/2012	-	14885 nt	11	2	vertebrates	10/27/2014	12/11/2020	
+Rhabdoviridae
+    Adelaide River virus	NC_028246	complete	isolate:DPP61	-	14627 nt	9	-	vertebrates	11/04/2015	08/13/2018	
+    Alfalfa dwarf virus	NC_028237	complete	isolate:Manfredi	-	14494 nt	7	1	land plants	11/03/2015	01/18/2019	
+    Almendravirus arboretum	NC_025393	complete	isolate:Lo-121	-	11482 nt	6	-	invertebrates	10/31/2014	08/13/2018	
+    Almendravirus balsa	NC_039200	complete	strain:CoB 76	-	11287 nt	7	-	invertebrates	08/24/2018	01/05/2022	
+    Almendravirus chico	NC_031958	complete	strain:GAM 195	-	10735 nt	6	-	invertebrates	09/21/2017	01/05/2022	
+    Almendravirus cootbay	NC_031957	complete	strain:EVG5-53	-	10869 nt	6	-	invertebrates	09/21/2017	01/05/2022	
+    Almpiwar virus	NC_025391	complete	isolate:MRM4059	-	11156 nt	8	-	invertebrates, vertebrates	10/31/2014	08/13/2018	
+    American bat vesiculovirus TFFN-2013	NC_022755	complete	isolate:liver2008	-	10692 nt	5	2	vertebrates	11/06/2013	08/13/2018	
+    Bahia Grande virus	NC_055531	complete	strain:TB4-1054	-	12639 nt	6	-	invertebrates	06/01/2021	06/07/2021	
+    Barur virus	NC_034535	complete	strain:6235	-	10853 nt	5	1	vertebrates	05/15/2017	08/25/2018	
+    Beatrice Hill virus	NC_039021	complete	isolate:CSIRO 25	-	13296 nt	8	-	invertebrates	08/24/2018	08/24/2018	
+    Berrimah virus	NC_025358	complete	strain:DPP 63	-	15024 nt	10	-	vertebrates	10/27/2014	08/13/2018	
+    Black grass varicosavirus-like virus	-	complete	-	2	10558 nt	2	-		04/02/2015	12/21/2020	
+          Black grass varicosavirus-like virus     (4006 nt)     NC_026798     proteins: 1
+          Black grass varicosavirus-like virus     (6552 nt)     NC_026801     proteins: 1
+    Bole Tick Virus 2	NC_031079	complete	strain:BL076	-	11843 nt	5	3	invertebrates	09/23/2016	08/13/2018	
+    Bovine ephemeral fever virus	NC_002526	complete	-	-	14900 nt	12	10	invertebrates, vertebrates	09/06/2000	08/13/2018	
+    Cabbage cytorhabdovirus 1	NC_055479	complete	strain:FERA_050726	-	12949 nt	6	-	land plants	06/01/2021	06/07/2021	
+    Caligus rogercresseyi rhabdovirus	NC_043525	complete	strain:CrRV-Ch01	-	11599 nt	6	-	invertebrates	06/28/2019	06/28/2019	
+    Carajas virus	NC_038285	complete	strain:BeAr411391	-	11135 nt	5	-		08/24/2018	08/24/2018	
+    Chaco virus	NC_034550	complete	strain:BeAn42217	-	11397 nt	8	-	vertebrates	05/15/2017	08/25/2018	
+    Chandipura virus	NC_020805	complete	isolate:CIN 0451	-	11120 nt	5	10	human, invertebrates, vertebrates	03/26/2013	08/13/2018	
+    Citrus chlorotic spot virus	-	complete	strain:Trs1	2	12505 nt	6	-	land plants	06/01/2021	06/10/2021	
+          Citrus chlorotic spot virus     (5987 nt)     NC_055209     proteins: 1
+          Citrus chlorotic spot virus     (6518 nt)     NC_055208     proteins: 5
+    Citrus leprosis virus N	-	complete	strain:ibi1	2	12769 nt	6	-	land plants	01/05/2021	01/06/2021	
+          Citrus leprosis virus N     (6724 nt)     NC_052230     proteins: 5     neighbors: 3
+          Citrus leprosis virus N     (6045 nt)     NC_052231     proteins: 1     neighbors: 3
+    Clerodendrum chlorotic spot virus	-	complete	isolate:Prb1	2	12629 nt	6	-	land plants	06/28/2019	08/22/2019	
+          Clerodendrum chlorotic spot virus     (6524 nt)     NC_043648     proteins: 5
+          Clerodendrum chlorotic spot virus     (6105 nt)     NC_043649     proteins: 1
+    Coastal Plains virus	NC_025397	complete	strain:DPP53	-	13203 nt	9	-	vertebrates	10/31/2014	08/13/2018	
+    Cocal virus	NC_028255	complete	isolate:Indiana 2	-	11003 nt	5	-	vertebrates	11/05/2015	08/13/2018	
+    Coffee ringspot virus	-	complete	strain:Lavras	2	12497 nt	6	-	land plants	08/24/2018	08/24/2018	
+          Coffee ringspot virus     (5945 nt)     NC_038755     proteins: 1
+          Coffee ringspot virus     (6552 nt)     NC_038756     proteins: 5
+    Colocasia bobone disease-associated virus	NC_034551	complete	strain:SI	-	12193 nt	6	2	land plants	05/15/2017	08/25/2018	
+    Cuiaba virus	NC_055509	complete	strain:BeAn 227841	-	11705 nt	7	-	vertebrates	06/01/2021	06/07/2021	
+    Culex rhabdo-like virus	NC_035132	complete	strain:mosWSB71420	-	11503 nt	5	3	invertebrates	06/27/2017	12/21/2020	
+    Culex tritaeniorhynchus rhabdovirus	NC_025384	complete	strain:TY	-	11190 nt	5	2	invertebrates	10/30/2014	08/13/2018	
+    Curionopolis virus	NC_039201	complete	strain:BeAr440009	-	13170 nt	10	1		08/24/2018	08/24/2018	
+    Cytorhabdovirus caricae	NC_055504	complete	isolate:Los Rios_Ec	-	13469 nt	8	2	land plants	06/01/2021	06/07/2021	
+    Cytorhabdovirus fragariae	NC_055567	complete	isolate:B	-	14028 nt	9	2	land plants	06/01/2021	06/08/2021	
+    Cytorhabdovirus gramineae	NC_002251	complete	-	-	13222 nt	9	1	land plants	05/03/2000	08/13/2018	
+    Cytorhabdovirus hordei	NC_028244	complete	strain:Hebei	-	12706 nt	10	1	land plants	11/03/2015	08/13/2018	
+    Datura yellow vein nucleorhabdovirus	NC_028231	complete	-	-	13188 nt	6	-	land plants	11/03/2015	08/13/2018	
+    Diachasmimorpha longicaudata rhabdovirus	NC_030451	complete	isolate:UGA	-	13434 nt	6	-	invertebrates	07/12/2016	08/25/2018	
+    Dichorhavirus orchidaceae	-	complete	isolate:So	2	12414 nt	6	-	land plants	06/28/2007	08/13/2018	
+          Dichorhavirus orchidaceae     (6001 nt)     NC_009609     proteins: 1     neighbors: 9
+          Dichorhavirus orchidaceae     (6413 nt)     NC_009608     proteins: 5     neighbors: 9
+    Dolphin rhabdovirus	NC_025406	complete	isolate:pxV1 1992	-	11141 nt	5	-	vertebrates	10/31/2014	08/13/2018	
+    Drosophila affinis sigmavirus	NC_038278	complete	isolate:10	-	14409 nt	6	-	invertebrates	08/24/2018	08/24/2018	
+    Drosophila ananassae sigmavirus	NC_038279	complete	isolate:Kilifi Kenya	-	12790 nt	6	-	invertebrates	08/24/2018	08/24/2018	
+    Drosophila immigrans sigmavirus	NC_038280	complete	strain:SCM45623	-	12486 nt	6	-	invertebrates	08/24/2018	08/24/2018	
+    Sigmavirus melanogaster
+          Drosophila melanogaster sigmavirus AP30	NC_013135	complete	isolate:AP30	-	12390 nt	6	2	invertebrates	09/17/2007	08/17/2018	
+          Drosophila melanogaster sigmavirus HAP23	NC_038281	complete	isolate:HAP23	-	12625 nt	6	2	invertebrates	08/24/2018	08/24/2018	
+    Drosophila obscura sigmavirus 10A	NC_022580	complete	isolate:10A	-	12676 nt	6	-	invertebrates	10/24/2013	08/13/2018	
+    Drosophila tristis sigmavirus	NC_043065	incomplete	isolate:pool-seq	-	5347 nt	1	-	invertebrates	06/28/2019	06/28/2019	
+    Durham virus	NC_038284	incomplete	-	-	11092 nt	7	-	vertebrates	08/24/2018	08/24/2018	
+    Eel virus European X	NC_022581	complete	isolate:153311	-	11806 nt	6	4	vertebrates	10/21/2010	08/13/2018	
+    Eggplant mottled dwarf nucleorhabdovirus	NC_025389	complete	isolate:Agapanthus	-	13100 nt	7	2	land plants	10/31/2014	08/13/2018	
+    Ekpoma virus 1	NC_038282	incomplete	isolate:EKV-1	-	12659 nt	8	-	human	08/24/2018	08/24/2018	
+    Ekpoma virus 2	NC_038283	complete	isolate:EKV-2	-	12674 nt	8	-	human	08/24/2018	08/24/2018	
+    European bat 1 lyssavirus	NC_009527	complete	isolate:RV9; 9395GER	-	11966 nt	5	132	vertebrates	06/07/2007	08/13/2018	
+    European bat 2 lyssavirus	NC_009528	complete	isolate:RV1333	-	11930 nt	5	30	human, vertebrates	06/07/2007	08/13/2018	
+    Farmington virus	NC_025253	complete	strain:CT 114	-	12233 nt	5	1	vertebrates	10/15/2014	08/13/2018	
+    Fikirini rhabdovirus	NC_025341	complete	isolate:KEN352	-	11139 nt	5	-	vertebrates	10/27/2014	08/13/2018	
+    Fox fecal rhabdovirus	NC_028867	complete	isolate:S40	-	15541 nt	8	-	vertebrates	01/05/2016	08/13/2018	
+    Fukuoka virus	NC_034454	complete	strain:FUK-11	-	10863 nt	6	-	invertebrates	05/05/2017	08/13/2018	
+    Gannoruwa bat lyssavirus	NC_031988	complete	isolate:RV3266	-	11919 nt	5	3	vertebrates	11/29/2016	08/13/2018	
+    Garba virus	NC_055530	complete	strain:DakAnB439a	-	10821 nt	7	-	vertebrates	06/01/2021	06/07/2021	
+    Gata virus	NC_031691	complete	strain:M4	-	11238 nt	5	-	invertebrates	11/01/2016	08/13/2018	
+    Sprivivirus esox
+          Grass carp virus	NC_025376	complete	isolate:V76	-	11096 nt	5	-	vertebrates	10/27/2014	08/13/2018	
+          Sprivivirus esox	NC_025356	complete	isolate:F4	-	11097 nt	5	-	vertebrates	10/27/2014	08/13/2018	
+          Tench rhabdovirus	NC_025371	complete	isolate:S64	-	11082 nt	5	-	vertebrates	10/27/2014	08/13/2018	
+    Gray Lodge virus	NC_034541	complete	strain:BFN3187	-	12403 nt	9	-	invertebrates	05/15/2017	08/25/2018	
+    Hapavirus flanders	NC_039202	complete	strain:61-7484	-	13038 nt	9	10	invertebrates, vertebrates	08/24/2018	08/24/2018	
+    Hapavirus ngaingan	NC_013955	complete	strain:MRM14556	-	15764 nt	15	-	invertebrates,  vertebrates	03/26/2010	08/13/2018	
+    Hapavirus wongabel	NC_011639	complete	strain:CS264	-	13196 nt	10	-	invertebrates	12/09/2008	08/13/2018	
+    Harrison Dam virus	NC_055460	complete	isolate:CS75	-	11284 nt	9	-	invertebrates	06/01/2021	06/07/2021	
+    Hart Park virus	NC_034447	complete	strain:AR7C	-	13104 nt	9	1	invertebrates	05/05/2017	08/13/2018	
+    Holmes Jungle virus	NC_055473	complete	isolate:DPP1163	-	13168 nt	10	-	invertebrates	06/01/2021	06/07/2021	
+    Huangpi Tick Virus 3	NC_031083	complete	strain:H124-2	-	13169 nt	5	-	invertebrates	09/23/2016	08/13/2018	
+    Hubei diptera virus 10	NC_033103	complete	strain:SCM43656	-	13161 nt	6	-	invertebrates	01/17/2017	08/13/2018	
+    Hubei diptera virus 9	NC_033034	complete	strain:SCM172232	-	13000 nt	6	-	invertebrates	01/17/2017	08/13/2018	
+    Hubei lepidoptera virus 2	NC_032907	complete	strain:LCM101902	-	13109 nt	6	-	invertebrates	01/17/2017	08/13/2018	
+    Hubei rhabdo-like virus 9	NC_033267	complete	strain:WHZHC73015	-	13776 nt	7	-	invertebrates	01/17/2017	08/13/2018	
+    Ikoma lyssavirus	NC_018629	complete	isolate:RV2508	-	11902 nt	5	-	vertebrates	09/21/2012	08/13/2018	
+    Infectious hematopoietic necrosis virus	NC_001652	complete	strain:WRAC	-	11131 nt	6	18	vertebrates	03/22/1995	08/13/2018	
+    Inhangapi virus	NC_028230	complete	strain:BEAR177325	-	12020 nt	6	1	invertebrates	11/03/2015	08/13/2018	
+    Iriri virus	NC_034544	complete	strain:BeAr408005	-	13070 nt	10	-		05/15/2017	08/25/2018	
+    Isfahan virus	NC_020806	complete	-	-	11088 nt	5	-	invertebrates, vertebrates	01/14/2005	08/13/2018	
+    Itacaiunas virus	NC_034536	complete	strain:BeAr427036	-	12536 nt	7	-		05/15/2017	08/25/2018	
+    Joinjakaka virus	NC_034538	complete	strain:AusMK7937	-	13155 nt	9	-	invertebrates	05/15/2017	08/25/2018	
+    Kamese virus	NC_034450	complete	strain:MP6186	-	13209 nt	10	1	invertebrates	05/05/2017	08/13/2018	
+    Kanyawara virus	NC_039020	complete	isolate:MPK004	-	10843 nt	5	-	invertebrates	08/24/2018	08/24/2018	
+    Kern Canyon virus	NC_034451	complete	strain:M03790	-	11528 nt	6	-	vertebrates	05/05/2017	08/13/2018	
+    Keuraliba virus	NC_034540	complete	strain:DakAnD5314	-	11457 nt	6	-	vertebrates	05/15/2017	08/25/2018	
+    Kimberley virus	NC_025396	complete	isolate:CS368	-	15442 nt	9	-	invertebrates, vertebrates	10/31/2014	08/13/2018	
+    Klamath virus	NC_034549	complete	strain:M-1056	-	11478 nt	8	-	vertebrates	05/15/2017	08/25/2018	
+    Kolente virus	NC_025342	complete	isolate:DakAr K7292	-	11120 nt	5	-		10/27/2014	08/13/2018	
+    Koolpinyah virus	NC_028239	complete	isolate:DPP819	-	16133 nt	11	-	vertebrates	11/03/2015	08/13/2018	
+    Kotonkan virus	NC_017714	complete	isolate:IbAr23380	-	15867 nt	11	-	invertebrates,  vertebrates	07/03/2012	08/13/2018	
+    Kumasi rhabdovirus	NC_028236	complete	-	-	11072 nt	7	-	vertebrates	11/03/2015	08/13/2018	
+    Kwatta virus	NC_055456	complete	strain:A-57	-	11211 nt	7	-		06/01/2021	06/07/2021	
+    La Joya virus	NC_034537	complete	strain:J-134	-	15721 nt	14	-	invertebrates	05/15/2017	08/25/2018	
+    Lake trout rhabdovirus 903/87	NC_038277	incomplete	-	-	6552 nt	5	-	vertebrates	08/24/2018	08/24/2018	
+    Landjia virus	NC_034533	complete	strain:DakAnB769d	-	13695 nt	11	-	vertebrates	05/15/2017	08/25/2018	
+    Le Dantec virus	NC_034443	complete	strain:DakHD763	-	11450 nt	6	-	human	05/05/2017	08/13/2018	
+    Ledantevirus nishimuro	NC_038276	complete	-	-	10881 nt	4	-	vertebrates	08/24/2018	08/24/2018	
+    Lepeophtheirus salmonis rhabdovirus 127	NC_055138	complete	isolate:LSRV-No127	-	11519 nt	5	-	invertebrates	06/01/2021	06/07/2021	
+    Lepeophtheirus salmonis rhabdovirus 9	NC_055137	complete	isolate:LSRV-No9	-	11681 nt	5	-	invertebrates	06/01/2021	06/07/2021	
+    Lettuce necrotic yellows virus	NC_007642	complete	isolate:318	-	12807 nt	6	1	land plants	12/07/2005	08/13/2018	
+    Lettuce yellow mottle virus	NC_011532	complete	-	-	12926 nt	6	-	land plants	11/12/2008	08/13/2018	
+    Lleida bat lyssavirus	NC_031955	complete	isolate:RV3208	-	11931 nt	5	1	vertebrates	11/21/2016	08/13/2018	
+    Long Island tick rhabdovirus	NC_025340	complete	strain:LS1	-	11176 nt	5	-	invertebrates	10/27/2014	08/13/2018	
+    Lyssavirus Ozernoe	NC_025408	complete	strain:Ozernoe	-	11980 nt	5	-		10/31/2014	08/13/2018	
+    Lyssavirus aravan	NC_020808	complete	-	-	11918 nt	5	-	vertebrates	03/26/2013	08/13/2018	
+    Lyssavirus australis	NC_003243	complete	isolate:insectivorous isolate	-	11822 nt	5	28	human, vertebrates	08/10/1999	08/13/2018	
+    Lyssavirus bokeloh	NC_025251	complete	isolate:21961	-	11900 nt	5	9	vertebrates	10/15/2014	08/13/2018	
+    Lyssavirus caucasicus	NC_025377	complete	-	-	12278 nt	5	1	vertebrates	10/27/2014	08/13/2018	
+    Lyssavirus duvenhage	NC_020810	complete	isolate:86132SA	-	11976 nt	5	4	human, vertebrates	03/26/2013	08/13/2018	
+    Lyssavirus irkut	NC_020809	complete	-	-	11980 nt	5	1	vertebrates	03/26/2013	08/13/2018	
+    Lyssavirus khujand	NC_025385	complete	-	-	11903 nt	5	-	vertebrates	10/31/2014	08/13/2018	
+    Lyssavirus lagos	NC_020807	complete	isolate:0406SEN	-	12016 nt	5	7	human, vertebrates	03/26/2013	08/13/2018	
+    Lyssavirus mokola	NC_006429	complete	-	-	11940 nt	5	9	vertebrates	02/06/1997	08/13/2018	
+    Lyssavirus rabies	NC_001542	complete	-	-	11932 nt	5	2336	human, vertebrates	08/03/1993	08/13/2018	
+    Lyssavirus shimoni	NC_025365	complete	isolate:Shimoni	-	12045 nt	5	-	vertebrates	10/27/2014	08/13/2018	
+    Maize Iranian mosaic nucleorhabdovirus	NC_036390	complete	isolate:Fars	-	12426 nt	6	1	land plants	12/07/2017	08/13/2018	
+    Maize fine streak nucleorhabdovirus	NC_005974	complete	-	-	13782 nt	7	-		07/12/2004	08/13/2018	
+    Maize mosaic nucleorhabdovirus	NC_005975	complete	-	-	12133 nt	6	1	land plants	07/12/2004	08/13/2018	
+    Maize yellow striate virus	NC_055454	complete	-	-	12654 nt	10	1	land plants	06/01/2021	06/07/2021	
+    Malakal virus	NC_025400	complete	isolate:SudAr 1169-64	-	15444 nt	10	-	invertebrates	10/31/2014	08/13/2018	
+    Manitoba virus	NC_034531	complete	strain:Mn936-77	-	13784 nt	11	-	invertebrates	05/15/2017	08/25/2018	
+    Maraba virus	NC_025255	complete	-	-	11135 nt	6	-		10/15/2014	08/13/2018	
+    Marco virus	NC_034530	complete	strain:BeAn40290	-	13294 nt	7	-	vertebrates	05/15/2017	08/25/2018	
+    Menghai rhabdovirus	NC_040602	complete	isolate:Menghai	-	10744 nt	6	6	invertebrates	02/12/2019	09/12/2019	
+    Merida virus	NC_040599	complete	isolate:MERD-Mex07	-	11798 nt	5	2	invertebrates	02/12/2019	09/12/2019	
+    Merida-like virus KE-2017a	NC_040532	complete	isolate:139-1-21	-	11798 nt	5	-	invertebrates	02/12/2019	09/12/2019	
+    Morogoro maize-associated virus	NC_055512	complete	isolate:16-0112	-	12185 nt	6	1	land plants	06/01/2021	06/07/2021	
+    Mosqueiro virus	NC_034448	complete	strain:BeAr185559	-	12957 nt	11	-	invertebrates	05/05/2017	08/13/2018	
+    Mossuril virus	NC_038275	complete	strain:SAAr1995	-	13106 nt	10	-	invertebrates	08/24/2018	08/24/2018	
+    Mount Elgon bat virus	NC_034545	complete	strain:BP846	-	10941 nt	5	-	vertebrates	05/15/2017	08/13/2018	
+    Moussa virus	NC_025359	complete	isolate:C23	-	11526 nt	5	1	invertebrates	10/27/2014	08/13/2018	
+    Muir Springs virus	NC_055532	complete	strain:76V-23524	-	12580 nt	5	-	invertebrates	06/01/2021	06/07/2021	
+    Muscina stabulans sigmavirus	NC_043066	incomplete	isolate:CA_1	-	2850 nt	1	-	invertebrates	06/28/2019	06/28/2019	
+    New Minto virus	NC_055457	complete	strain:579	-	11156 nt	5	-	invertebrates	06/01/2021	06/07/2021	
+    Niakha virus	NC_025405	complete	isolate:DakArD 88909	-	11124 nt	5	-		10/31/2014	08/13/2018	
+    Nkolbisson virus	NC_034539	complete	strain:YM 31-65	-	10968 nt	5	-	invertebrates	05/15/2017	08/25/2018	
+    Novirhabdovirus hirame	NC_005093	complete	strain:CA 9703	-	11034 nt	6	1	vertebrates	09/13/2003	08/13/2018	
+    Oak-Vale virus	NC_025399	complete	strain:CSIRO 1342	-	11220 nt	7	1		10/31/2014	08/13/2018	
+    Obodhiang virus	NC_017685	complete	isolate:Obodhiang	-	14717 nt	9	-	invertebrates	07/03/2012	08/13/2018	
+    Ohlsdorf virus	NC_055477	complete	strain:Germany/2012/Oc.cantans	-	11624 nt	5	-	invertebrates	06/01/2021	06/07/2021	
+    Oita virus	NC_034548	complete	strain:296-1972	-	11355 nt	5	1	vertebrates	05/15/2017	08/13/2018	
+    Ord River virus	NC_034543	complete	strain:OR1023	-	13189 nt	10	1	invertebrates	05/15/2017	08/25/2018	
+    Orgi virus	NC_031690	complete	strain:SP1	-	11308 nt	5	1	invertebrates	11/01/2016	08/13/2018	
+    Parry Creek virus	NC_034449	complete	strain:OR189	-	13205 nt	9	-	invertebrates	05/05/2017	08/13/2018	
+    Perhabdovirus perca	NC_020803	complete	isolate:PRV	-	11487 nt	5	4	vertebrates	03/26/2013	06/07/2021	
+    Persimmon virus A	NC_018381	complete	strain:persimmon isolate	-	13467 nt	6	-	land plants	08/13/2012	08/13/2018	
+    Physostegia chlorotic mottle virus	NC_055466	complete	isolate:PV-1182	-	13320 nt	7	26	land plants	06/01/2021	06/07/2021	
+    Piry virus	NC_038286	complete	strain:BeAn2423	-	11271 nt	5	-	vertebrates	08/24/2018	08/24/2018	
+    Potato yellow dwarf nucleorhabdovirus	NC_016136	complete	strain:SYDV	-	12875 nt	7	1	land plants	10/25/2011	08/13/2018	
+    Puerto Almendras virus	NC_025395	complete	type:Rhabdovirus; isolate:LO-39	-	11876 nt	6	-	invertebrates	10/31/2014	08/13/2018	
+    Raspberry vein chlorosis virus	NC_055529	complete	isolate:Hutton_1	-	14512 nt	8	1	invertebrates, land plants	06/01/2021	06/07/2021	
+    Rice stripe mosaic virus	NC_040786	complete	isolate:GD-LD	-	12774 nt	7	12	land plants	02/12/2019	09/12/2019	
+    Rice yellow stunt nucleorhabdovirus	NC_003746	complete	-	-	14042 nt	7	1	land plants	03/16/1998	08/13/2018	
+    Riverside virus 1	NC_040669	complete	strain:RISV-Drava 1	-	11713 nt	5	1		02/12/2019	09/12/2019	
+    Rochambeau virus	NC_034534	complete	strain:CaAr16102	-	13593 nt	11	-	invertebrates	05/15/2017	08/25/2018	
+    Santa barbara virus	NC_028234	complete	strain:AR775619	-	12162 nt	7	-	invertebrates	11/03/2015	05/13/2020	
+    Sanxia Water Strider Virus 5	NC_031093	complete	strain:SXSSP11	-	12978 nt	5	-	invertebrates	09/23/2016	08/13/2018	
+    Sawgrass virus	NC_055461	complete	strain:64A-1247	-	11216 nt	5	-	invertebrates	06/01/2021	06/07/2021	
+    Scophthalmus maximus rhabdovirus	NC_025387	complete	-	-	11492 nt	7	-	vertebrates	10/31/2014	08/13/2018	
+    Sena Madureira virus	NC_034529	complete	strain:BeAn303197	-	11422 nt	7	-	vertebrates	05/15/2017	08/25/2018	
+    Shayang Fly Virus 2	NC_031215	complete	strain:SYY1-8	-	12291 nt	6	-	invertebrates	09/26/2016	08/13/2018	
+    Shayang Fly Virus 3	NC_031216	complete	strain:SYY1-1	-	15462 nt	5	-	invertebrates	09/26/2016	08/13/2018	
+    Shayang ascaridia galli virus 2	NC_033182	complete	strain:SYJFC48550	-	13283 nt	6	1	invertebrates	01/17/2017	08/13/2018	
+    Siniperca chuatsi rhabdovirus	NC_008514	complete	-	-	11545 nt	6	4	vertebrates	10/24/2006	08/13/2018	
+    Snakehead virus	NC_000903	complete	-	-	11550 nt	6	-	vertebrates	09/29/1999	08/13/2018	
+    Sonchus yellow net nucleorhabdovirus	NC_001615	complete	-	-	13720 nt	6	1	land plants	05/09/1994	08/13/2018	
+    Spodoptera frugiperda rhabdovirus	NC_025382	complete	isolate:Sf	-	13534 nt	6	5	invertebrates	10/30/2014	08/13/2018	
+    Sprivivirus cyprinus	NC_002803	complete	strain:ATCC VR-1390	-	11019 nt	5	16	vertebrates	11/16/1995	08/13/2018	
+    Sripur virus	NC_034542	complete	strain:733646	-	11290 nt	9	-		05/15/2017	08/25/2018	
+    Strawberry crinkle virus	NC_043064	incomplete	isolate:HB-A1	-	1638 nt	1	1	land plants	06/28/2019	06/28/2019	
+    Sunguru virus	NC_025401	complete	isolate:Ug#41	-	11056 nt	7	-	vertebrates	10/31/2014	08/13/2018	
+    Sweetwater Branch virus	NC_034546	complete	strain:UF-11	-	13141 nt	8	-	invertebrates	05/15/2017	08/13/2018	
+    Tacheng Tick Virus 3	NC_031268	complete	strain:TC255	-	8683 nt	2	-	invertebrates	09/27/2016	08/13/2018	
+    Tacheng Tick Virus 7	NC_031272	complete	strain:TCRP-3	-	13408 nt	6	-	invertebrates	09/27/2016	08/13/2018	
+    Taishun Tick Virus	NC_031273	complete	strain:BL198	-	11280 nt	3	1	invertebrates	09/27/2016	08/13/2018	
+    Taiwan bat lyssavirus	NC_055474	complete	isolate:TWBLV/TN/2016	-	11988 nt	5	1	vertebrates	06/01/2021	06/07/2021	
+    Taro vein chlorosis virus	NC_006942	complete	-	-	12020 nt	6	-	land plants	04/07/2005	01/31/2022	
+    Tibrogargan virus	NC_020804	complete	strain:CS132	-	13298 nt	9	1	invertebrates, vertebrates	03/26/2013	08/13/2018	
+    Tibrovirus congo	NC_043067	incomplete	isolate:BASV-1	-	11892 nt	8	-	human	06/28/2019	06/28/2019	
+    Tomato yellow mottle-associated virus	NC_034240	complete	-	-	13389 nt	7	5	land plants	04/05/2017	08/13/2018	
+    Tongilchon virus 1	NC_028484	complete	strain:A12.2676/ROK/2012	-	11343 nt	5	-	invertebrates	12/03/2015	12/21/2020	
+    Tupaia virus	NC_007020	complete	-	-	11440 nt	7	-	vertebrates	05/24/2005	08/13/2018	
+    Vaprio virus	NC_043538	complete	isolate:VAPV_2016	-	11774 nt	6	-	vertebrates	06/28/2019	06/28/2019	
+    Varicosavirus lactucae	-	complete	-	2	12878 nt	6	-	land plants	11/14/2008	08/13/2018	
+          Varicosavirus lactucae     (6797 nt)     NC_011558     proteins: 1     neighbors: 2
+          Varicosavirus lactucae     (6081 nt)     NC_011568     proteins: 5     neighbors: 3
+    Vesicular stomatitis Alagoas virus	NC_025353	complete	isolate:Indiana 3	-	11070 nt	5	-	vertebrates	10/27/2014	08/13/2018	
+    Vesicular stomatitis Indiana virus	-	complete	strain:98COE; serotype:Indiana 1	2	22323 nt	11	-	vertebrates	08/24/2018	08/24/2018	
+          Vesicular stomatitis Indiana virus     (11162 nt)     NC_038236     proteins: 5     neighbors: 67
+          Vesicular stomatitis Indiana virus     (11161 nt)     NC_001560     proteins: 6     neighbors: 67
+    Vesicular stomatitis New Jersey virus	NC_024473	complete	isolate:NJ1184HDB	-	11123 nt	6	21	invertebrates, vertebrates	07/14/2014	08/13/2018	
+    Vesiculovirus bogdanovac	NC_025378	complete	-	-	11202 nt	5	-	invertebrates	10/27/2014	08/13/2018	
+    Vesiculovirus jurona	NC_039206	complete	strain:BeAr40578	-	11121 nt	5	1	human, invertebrates	08/24/2018	08/24/2018	
+    Vesiculovirus malpais	NC_025364	complete	strain:85-488NM	-	11019 nt	5	-	invertebrates	10/27/2014	08/13/2018	
+    Vesiculovirus morreton	NC_034508	complete	strain:CoAr191048	-	11181 nt	5	-		05/15/2017	08/25/2018	
+    Vesiculovirus perinet	NC_025394	complete	-	-	11103 nt	5	-	invertebrates	10/31/2014	08/13/2018	
+    Vesiculovirus radi	NC_038287	complete	strain:ISS Phl-166	-	11068 nt	5	-	invertebrates	08/24/2018	08/24/2018	
+    Viral hemorrhagic septicemia virus Fil3	NC_000855	complete	strain:Fil3	-	11158 nt	6	152	vertebrates	06/09/1999	08/13/2018	
+    Walkabout Creek virus	NC_028232	complete	isolate:CS1056	-	11214 nt	8	-	invertebrates	11/03/2015	08/13/2018	
+    Wenling crustacean virus 10	NC_032739	complete	strain:WLJQ101844	-	11938 nt	5	-	invertebrates	01/17/2017	08/13/2018	
+    Wenling crustacean virus 11	NC_032781	complete	strain:WLJQ201798	-	11560 nt	5	-	invertebrates	01/17/2017	08/13/2018	
+    Wheat yellow striate virus	NC_055484	complete	isolate:SX-HC	-	14486 nt	7	-	land plants	06/01/2021	06/07/2021	
+    Wuhan Ant Virus	NC_031276	complete	strain:WHMY02	-	7202 nt	1	-	invertebrates	09/27/2016	08/13/2018	
+    Wuhan Fly Virus 2	NC_031278	complete	strain:SYY1-3	-	12247 nt	6	-	invertebrates	09/27/2016	08/13/2018	
+    Wuhan House Fly Virus 1	NC_031282	complete	strain:SYY2-4	-	12651 nt	6	1	invertebrates	09/27/2016	08/13/2018	
+    Wuhan House Fly Virus 2	NC_031283	complete	strain:SYY4-5	-	14731 nt	5	-	invertebrates	09/27/2016	08/13/2018	
+    Wuhan Insect virus 4	NC_031225	complete	strain:YCYC03	-	13490 nt	6	-	invertebrates	09/27/2016	08/13/2018	
+    Wuhan Insect virus 5	NC_031227	complete	strain:YCYC02	-	12734 nt	6	-	invertebrates	09/27/2016	08/13/2018	
+    Wuhan Insect virus 6	NC_031232	complete	strain:SXCC01-1	-	14191 nt	6	-	invertebrates	09/27/2016	08/13/2018	
+    Wuhan Insect virus 7	NC_031236	complete	strain:WHYC02	-	11165 nt	5	-	invertebrates	09/27/2016	08/13/2018	
+    Wuhan Louse Fly Virus 10	NC_031240	complete	strain:BFJSC-8	-	11541 nt	5	-	invertebrates	09/27/2016	08/13/2018	
+    Wuhan Louse Fly Virus 5	NC_031301	complete	strain:BFJSC-5	-	11103 nt	5	-	invertebrates	09/30/2016	08/13/2018	
+    Wuhan Louse Fly Virus 9	NC_031302	complete	strain:BFJSC-7	-	11370 nt	5	-	invertebrates	09/30/2016	08/13/2018	
+    Wuhan Mosquito Virus 9	NC_031303	complete	strain:JX1-13	-	13706 nt	6	-	invertebrates	09/30/2016	08/13/2018	
+    Wuhan Tick Virus 1	NC_031304	complete	strain:X78-2	-	10306 nt	4	17	invertebrates	09/30/2016	08/13/2018	
+    Xiburema virus	NC_025362	complete	isolate:XIBV/BE AR 362159	-	12240 nt	7	-	invertebrates	10/27/2014	08/13/2018	
+    Xingshan nematode virus 4	NC_033701	complete	strain:XSNXC32924	-	11743 nt	5	-	invertebrates	02/16/2017	08/13/2018	
+    Xinzhou nematode virus 4	NC_033705	complete	strain:XZSJSC65771	-	11731 nt	5	-	invertebrates	02/16/2017	08/13/2018	
+    Yata virus	NC_028241	complete	isolate:DakArB 2181	-	14478 nt	11	-	invertebrates	11/03/2015	08/13/2018	
+    Yerba mate chlorosis-associated virus	NC_055505	complete	isolate:Montecarlo	-	12595 nt	7	-	land plants	06/01/2021	06/07/2021	
+    Yongjia Tick Virus 2	NC_031305	complete	strain:YJ1-2	-	10833 nt	5	-	invertebrates	09/30/2016	08/13/2018	
+    Zahedan rhabdovirus	NC_040664	complete	isolate:Ar Teh 157764	-	11230 nt	5	-	invertebrates	02/12/2019	09/12/2019	
+Sunviridae
+    Sunshine Coast virus	NC_025345	complete	-	-	17187 nt	6	-	vertebrates	10/27/2014	08/13/2018	
+Xinmoviridae
+    Bolahun virus variant 2	NC_055112	complete	-	-	11672 nt	6	-	invertebrates	06/01/2021	06/07/2021	
+    Culex mononega-like virus 2	NC_035133	complete	strain:mos191gb23464	-	13297 nt	6	5	invertebrates	06/27/2017	12/21/2020	
+    Drosophila unispina virus 1	NC_043484	complete	-	-	13559 nt	5	-	invertebrates	06/28/2019	06/28/2019	
+    Hubei diptera virus 11	NC_033055	complete	strain:SCM51501	-	12513 nt	4	-	invertebrates	01/17/2017	08/13/2018	
+    Hubei orthoptera virus 5	NC_032849	complete	strain:ZCM94262	-	10903 nt	4	-	invertebrates	01/17/2017	08/13/2018	
+    Hubei rhabdo-like virus 7	NC_033027	complete	strain:QTM26925	-	9614 nt	3	-	invertebrates	01/17/2017	08/13/2018	
+    Shuangao Fly Virus 2	NC_055111	complete	strain:QSA05	-	6275 nt	1	-	invertebrates	06/01/2021	06/07/2021	
+    Xincheng Mosquito Virus	NC_031244	complete	strain:XC1-6	-	12774 nt	4	-	invertebrates	09/27/2016	08/13/2018	

@@ -1,0 +1,19 @@
+---
+output: 
+  html_document:
+    toc: yes
+    toc_float:
+      collapsed: false
+pagetitle: Data Analytics Final Project
+title: "Data Analytics Final Project - Constructing a Viral Phylogenetic Tree"
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, error = FALSE)
+```
+## Initial Setup 
+
+First let's load up a few packages to get us started:
+```{r, message=FALSE}
+library(tidyverse)
+```
+

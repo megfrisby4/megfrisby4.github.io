@@ -1,17 +1,23 @@
 ---
-title: ""
-output: html_document
-date: ""
+output: 
+  html_document:
+title: "BIOL 3100 Data Analytics Student Website"
 ---
+## Utah Valley University Spring 2023
+## Student: Megan Frisby 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-heres my website.
 
-```{r}
+```{r, out.height='400', out.width='600'}
+knitr::include_graphics("./media/uvu.jpg")
+
 
 ```
-##[about me](http://megfrisby4.github.io/about_me)|
+
+
+# Click on a link below to navigate my webpage
+## [About me](http://megfrisby4.github.io/about_me)|[Data Analytics Final Project](http://megfrisby4.github.io/Data_Analytics_Project)
 
