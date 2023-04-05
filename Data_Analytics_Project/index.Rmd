@@ -15,5 +15,6 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, error = FALSE)
 First let's load up a few packages to get us started:
 ```{r, message=FALSE}
 library(tidyverse)
+
 ```
 
