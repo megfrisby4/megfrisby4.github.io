@@ -14,8 +14,12 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, error = FALSE)
 I know I don't have a whole ton of 'actual code' to show for this but I have been doing a lot of work figuring out what packages to use and how to use them.... lots and lots of reading!! and there is so so sooo much more to come!
 
 ## What I have so far.... (my exploratory code...definetly unfinished):
-```{r, message=FALSE, warning=FALSE}
+```
 
+[complete list of virus genomes](http://megfrisby4.github.io/Data_Analytics_Project/Data/virus_genomes.FASTA)
+-warning...it's a big old honker (2.1MB) beware!
+
+```{r}
 #making a phylogenetic tree with viral genome sequences from NCBI
 
 #phylogenies are very important for viral studies especially concerning viral
@@ -37,8 +41,6 @@ library(Biostrings)
 #github packages
 library(compbio4all)
 library(ggmsa)
-
-
 
 #use entrez to explore sequences from NCBI database
 #protein database first 
@@ -68,9 +70,7 @@ filo <- readr:: read_lines(file="./Data/Filoviridae.acc_lst")
 filo
 
 #here it is 
-
-
-#retmax_set=1
+retmax_set=1
 
 #ok then I am just going to select an accession number Ill choose the first one 
 #its for Lloviu cuevavirus but we dont really need to know that yet 
@@ -252,12 +252,78 @@ score(align_marburg_marburg)
 score(align_bundi_reston)
 
 
+#I can do multiple sequences at once as well (or at least read them into r)
+#and make them into a list with a function in combio4all
+
+#luckily for me I have files of all the accession numbers I just need to read 
+#them in and make them a single vector which is basically all of the 
+#cleaning i need to do!
+
+#remember how my filoviruse accession numbers were contained in this variable....
+filo
+#its a character vector which is what I want 
+
+#so if i did 
+filos <- entrez_fetch(db = "nucleotide", 
+             id = filo, 
+             rettype = "fasta")
+cat(filos)
+#I get all the genomes for the filoviruses 
+
+#now we have a single very long set of data
+#this isn't super useable for R and coding 
+#lets try a new function 
+
+#this function allows me to download a bunch of fasta files and put them in
+#a list 
+
+filo_fasta_list <- entrez_fetch_list(db = "nucleotide", 
+                                  id = filo, 
+                                  rettype = "fasta")
+#if we have a look at it 
+filo_fasta_list
+
+
+#pretty amazing right!!
+#i just did that in like 5 minutes (thank you sucky computer)
+
+#so this means if I wanted allllll the genomes for allllll my viruses of interest....
+
+
+art <- readr::read_lines("./Data/Artoviridae.acc_lst")
+list1 <- c(art, filo)
+
+born <- readr::read_lines("./Data/Bornaviridae.acc_lst")
+list2 <- c(list1,born)
+
+lisp <- readr::read_lines("./Data/Lispiviridae.acc_lst")
+list3 <- c(list2,lisp)
+
+mym <- readr::read_lines("./Data/Mymonaviridae.acc_lst")
+
+
+nyan <- readr::read_lines("./Data/Nyamiviridae.acc_lst")
+
+
+para <- readr::read_lines("./Data/Paramyxoviridae.acc_lst")
+
+pneu <- readr::read_lines("./Data/Pneumoviridae .acc_lst")
+sun <- readr::read_lines("./Data/Sunshinevirus.acc_lst")
+xin <- readr::read_lines("./Data/Xinmoviridae.acc_lst")
+
+
+virus_list <- c(mym,list3,nyan,para,pneu,sun,xin)
 
 
 
+#and so we make a list of sequences with all of my accessions 
+library(biomaRt)
+
+virus_fasta_list <- entrez_fetch_list(db = "nucleotide", 
+                                     id =virus_list, 
+                                     rettype = "fasta")
 
 
 
 ```
 
-[complete list of virus genomes](http://megfrisby4.github.io/Data_Analytics_Project/Data/virus_genomes.FASTA)
