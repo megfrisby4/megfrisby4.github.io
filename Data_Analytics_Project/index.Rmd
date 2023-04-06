@@ -7,27 +7,37 @@ output:
 pagetitle: Data Analytics Final Project
 title: "Data Analytics Final Project - Constructing a Viral Phylogenetic Tree"
 ---
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning=FALSE, error = FALSE)
-```
-
 I know I don't have a whole ton of 'actual code' to show for this but I have been doing a lot of work figuring out what packages to use and how to use them.... lots and lots of reading!! and there is so so sooo much more to come!
 
-## What I have so far.... (my exploratory code...definetly unfinished):
+phylogenies are very important for viral studies especially concerning viral evolution of potentially life threatening diseases. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, error = FALSE)
+#CRAN Packages
+library(ape)
+library(seqinr)
+library(rentrez)
+library(devtools)
+#Bioconductor packages 
+library(msa)
+library(Biostrings)
+
+#github packages
+library(compbio4all)
+library(ggmsa)
 ```
 
+
+## A download of the fasta file i created (150 complete viral genomes)
 [complete list of virus genomes](http://megfrisby4.github.io/Data_Analytics_Project/Data/virus_genomes.FASTA)
 -warning...it's a big old honker (2.1MB) beware!
 
-```{r}
-#making a phylogenetic tree with viral genome sequences from NCBI
+## What I have so far.... (my exploratory code...definetly unfinished):
+---I know this seems dumb, but just figuring out how to retrieve sequences with this package and very very basic analyzation took me HOURS but I feel like I learned so so much! Now that I can do this just with a list of accession numbers, I can download from NCBI make a vector, plug them in and have a fasta file in just a few easy steps, I can also then perform pairwise sequence comparison with any sequence to a reference genome (if i have the full genome) this will be very useful and important especially as i continue my research with Dr. Laney... I can see how genomes compare and possibly if we have identified new species of viruses, and how different from reference species they are, that is one of the biggest skills i wanted to acquire from data analytics and I feel like I am on the road to success for that!
 
-#phylogenies are very important for viral studies especially concerning viral
-#evolution of potentially life threatening diseases. 
 
-#a few packages I need to construct my phylogeny
-#(and acquire the correct data from NCBI)
-
+a few packages I need to construct my phylogeny (and acquire the correct data from NCBI):
+```{r, message=FALSE}
 #CRAN Packages
 library(ape)
 library(seqinr)
@@ -42,62 +52,58 @@ library(Biostrings)
 library(compbio4all)
 library(ggmsa)
 
-#use entrez to explore sequences from NCBI database
-#protein database first 
+```
 
-#i am also going to do nucleotide and genome later
-#proteins are good because you can run BLAST etc on them
-#viral proteins are very important to understand because they are the means
-#of how the virus effects the host, replicates, etc. 
-#without proteins viruses would just be sitting ducks 
-#literally they would do nothing 
-#viruses exist to make proteins
-#the proteins they create are what make viruses royally suck
-#the whole point of a viral genome is to make protein!!
 
-#set up some settings
+use entrez to explore sequences from NCBI database --- I can get nucleotide database to work..... but not protein yet :(
+
+some setting so i dont have to type out things everytime but im still going to for the time being!
+```{r}
 db = "nucleotide"
 rettype = "fasta"
 
-#try it with just one virus at first to get it figured out 
-#I can recall viruses in the NCBI database by accession number
-#ebola viruses are a member of the family filoviridae
-#luckily I have my data (accession numbers) saved by family 
+```
 
-#Im going to get my filoviridae accession list really quick
+exploring my collected data a bit... took me a minute to figure out how to deal with acc_lsts... seemed more complicated in my brain than it actually was, just use readlines dummy!
 
+I have all my accessions for each virus family i want to include in my tree seperated into lists, the only family i dont have in the order mononegavirales in rhabdoviridae and that is just because of the crazy sheer abundance of them... in other words, i wanted to process 150 virus genomes and not 750!
+
+me messing with the databases with the filoviruses trying to see if i can get protein database to work.... its commented because it doesn't work!!!
+```{r}
 filo <- readr:: read_lines(file="./Data/Filoviridae.acc_lst")
 filo
-
-#here it is 
-retmax_set=1
 
 #ok then I am just going to select an accession number Ill choose the first one 
 #its for Lloviu cuevavirus but we dont really need to know that yet 
 #just going to copy and paste in the accession
-#Lloviu_cuevavirus1 <- rentrez::entrez_fetch(db = "protein", 
- #                                 id = "NC_016144", 
-  #                                rettype = "fasta")
+#Lloviu_cuevavirus1 <- rentrez::entrez_fetch(db = "protein", id = "NC_016144", rettype = "fasta")
 #hmmm giving me an error grumble
 
-#how about genome 
+```
+
+
+still not entirely sure why that didn't work.... I will have to do some looking into that but for my purposes I dont think that the proteins are going to be the most important I am more intersted in the complete genomes and nucleotide sequences.... first it is going to be a matter of piecing all my accession lists together to get a useable dataset of the genomes I want ... everything but rhabdoviridae... also most of these were plant viruses anyways!
+
+also I want to focus on the less studied, and less prevalent (less genomes recorded) and their relationships 
+
+
+here I am just exploring some functions from the packages I downloaded... rentrez helps me to retrieve sequences from an accession number, and cat organizes the sequence line by line so it is a bit easier to look at. Rentrez also outputs a fasta file which is nice. 
+```{r}
 Lloviu_cuevavirus<- rentrez::entrez_fetch(db = "nucleotide",
                             id = "NC_016144", 
                              rettype = "fasta")
-#ok so nucleotide works!
-#dont know what the deal is with protein, 
-#some people say come back and rerun later
 
-#cat function does formatting 
 cat(Lloviu_cuevavirus)
+```
 
-#beautiful and the complete genome 
 
-#do this for the rest of the filoviruses 
+Here i can recall all the genomes of viruses in the family filoviridae by accession... im doing this the long way again....to understand this function!
+I demonstrate how I can do this for 150 genomes a little later, in just 1 command really!
+But nonetheless here I have made so, so many fastas, all by hand. 
+```{r}
 Mengla_dianlovirus <- rentrez::entrez_fetch(db = "nucleotide",
                                           id = "NC_055510", 
                                           rettype = "fasta")
-filo
 
 Bombali_ebolavirus <- rentrez::entrez_fetch(db = "nucleotide",
                       id = "NC_039345", 
@@ -106,7 +112,6 @@ Bombali_ebolavirus <- rentrez::entrez_fetch(db = "nucleotide",
 Bundibugyo_ebolavirus <- rentrez::entrez_fetch(db = "nucleotide",
                       id = "NC_014373", 
                       rettype = "fasta")
-
 
 Reston_ebolavirus <- rentrez::entrez_fetch(db = "nucleotide",
                       id = "NC_004161", 
@@ -143,46 +148,35 @@ Wenling_thamnaconus_septentrionalis <- rentrez::entrez_fetch(db = "nucleotide",
                       id = "NC_055176", 
                       rettype = "fasta")
 
-#use function to make the fastas useable
-
 Bombali_ebolavirus <- fasta_cleaner(Bombali_ebolavirus, parse=F)
 
 Bundibugyo_ebolavirus <- fasta_cleaner(Bundibugyo_ebolavirus, parse=F)
 
 Reston_ebolavirus <- fasta_cleaner(Reston_ebolavirus, parse=F)
 
-#I know I can do this witha forloop later but I first want to do it all the long way
-#so I know that it is working right 
-
 Sudan_ebolavirus <- fasta_cleaner(Sudan_ebolavirus, parse=F)
-
 
 Tai_Forest_ebolavirus <- fasta_cleaner(Tai_Forest_ebolavirus, parse=F)
 
-
-
 Zaire_ebolavirus <- fasta_cleaner(Zaire_ebolavirus, parse=F)
-
 
 
 Marburg_marburgvirus_1 <- fasta_cleaner(Marburg_marburgvirus_1 , parse=F)
 
 
-
 Marburg_marburgvirus_2 <- fasta_cleaner(Marburg_marburgvirus_2, parse=F)
-
 
 
 Wenling_frogfish_filovirus <- fasta_cleaner(Wenling_frogfish_filovirus, parse=F)
 
 Wenling_thamnaconus_septentrionalis <- fasta_cleaner(Wenling_thamnaconus_septentrionalis, parse=F)
-#bam header is removed and it is just sequence data 
+
+```
 
 
-#in the future i will make these into a named list so i have the sequence data 
-#and name all in one place that i can have fun with 
+and I can then use my data skills to make a list of these (cleaned) fastas by hand
 
-#a peek at my sequence data 
+```{r}
 
 filo_list <- list(Bombali_ebolavirus=Bombali_ebolavirus,
 Bundibugyo_ebolavirus=Bundibugyo_ebolavirus,
@@ -194,136 +188,102 @@ Marburg_marburgvirus_1=Marburg_marburgvirus_1,
 Marburg_marburgvirus_2=Marburg_marburgvirus_2,
 Wenling_frogfish_filovirus=Wenling_frogfish_filovirus,
 Wenling_thamnaconus_septentrionalis=Wenling_thamnaconus_septentrionalis)
+```
 
+and this list is ridiculously long...but its nice
+
+```{r}
 filo_list
+```
 
-
-#now I can access the sequences like this 
+i can access any sequence from the list like this 
+```{r}
 filo_list$Bombali_ebolavirus
 
+```
 
 
-#pretty cool 
-
-
-
-#do a pairwise alignment of the sequences using biostrings
+## A bit of pairwise alignment
+and i can do a simple pairwise analysis with this function
+```{r}
 align_bundi_reston <- Biostrings::pairwiseAlignment(
  Bundibugyo_ebolavirus,
  Reston_ebolavirus)
 
+```
 
-#lets have a look at the alignment
-align_bundi_reston 
+this is the alignment of reston and bundibugyo full genomes 
+heres what it throws:
+```{r, echo=FALSE}
+align_bundi_reston
+```
 
-#the score is negative... this means in general 
-#that the sequences are not very similar 
-#but we can look farther into this 
-#we would want to use percent sequence identity (PID)
-#also from the biostrings package 
-
-#pid 
+the lower the score the more different the genomes are in general the higher the score the more similar they are but score really isn't that intuitive so its time for another function 
+pairwise sequence identity will tell us what percent of the genomes will match...much more intuitive
+```{r}
 Biostrings::pid(align_bundi_reston)
+```
 
-#so bundibugyo and reston ebolavirues have 63% nucleotide sequence identity
+so these genomes are not very similar....good!
 
 
-#lets have a look at more similar viruses... how about the marburg viruses
+and if i look at something I think will be more similar 
+```{r}
 align_marburg_marburg <- Biostrings::pairwiseAlignment(
  Marburg_marburgvirus_1,
   Marburg_marburgvirus_2)
 
 align_marburg_marburg
 
-#a much higher score means have a higher percent of their genomes 
-#in common 
+```
 
-#use pid 
-Biostrings::pid(align_marburg_marburg)
-
-#it appears they share 79 percent of their genome 
-
-#if we just want the score of the alignment without all the other crap
-#and having to run such a heavy program we can use 
-#score 
-
-
+or if i just wanted the score:
+```{r}
 score(align_marburg_marburg)
-score(align_bundi_reston)
+```
 
+gotta look at that pid:
+```{r}
+Biostrings::pid(align_marburg_marburg)
+```
 
-#I can do multiple sequences at once as well (or at least read them into r)
-#and make them into a list with a function in combio4all
+these genomes have a lot more in common 
+there will be a lot i can do with pairwise alignments this is just scratching the surface but I really wanna focus on getting my data put together....
+right now I just have lists....fragments of accession numbers and I want sequences all in one central location (a list and a fasta)
+by the way I already posted the link to download the fasta that i made at the top of this page
 
-#luckily for me I have files of all the accession numbers I just need to read 
-#them in and make them a single vector which is basically all of the 
-#cleaning i need to do!
-
-#remember how my filoviruse accession numbers were contained in this variable....
-filo
-#its a character vector which is what I want 
-
-#so if i did 
-filos <- entrez_fetch(db = "nucleotide", 
-             id = filo, 
-             rettype = "fasta")
-cat(filos)
-#I get all the genomes for the filoviruses 
-
-#now we have a single very long set of data
-#this isn't super useable for R and coding 
-#lets try a new function 
-
-#this function allows me to download a bunch of fasta files and put them in
-#a list 
-
-filo_fasta_list <- entrez_fetch_list(db = "nucleotide", 
-                                  id = filo, 
-                                  rettype = "fasta")
-#if we have a look at it 
-filo_fasta_list
-
-
-#pretty amazing right!!
-#i just did that in like 5 minutes (thank you sucky computer)
-
-#so this means if I wanted allllll the genomes for allllll my viruses of interest....
-
-
+here I make one long vector of all of my accession numbers i hand selected with care (mostly I just excluded rhabdoviruses--the capabilities of my computer and my brain are not that good!)
+```{r}
+#remember i have filo from earlier (list of filoviridae accessions)
 art <- readr::read_lines("./Data/Artoviridae.acc_lst")
 list1 <- c(art, filo)
-
 born <- readr::read_lines("./Data/Bornaviridae.acc_lst")
 list2 <- c(list1,born)
-
 lisp <- readr::read_lines("./Data/Lispiviridae.acc_lst")
 list3 <- c(list2,lisp)
-
 mym <- readr::read_lines("./Data/Mymonaviridae.acc_lst")
-
-
 nyan <- readr::read_lines("./Data/Nyamiviridae.acc_lst")
-
-
 para <- readr::read_lines("./Data/Paramyxoviridae.acc_lst")
-
 pneu <- readr::read_lines("./Data/Pneumoviridae .acc_lst")
 sun <- readr::read_lines("./Data/Sunshinevirus.acc_lst")
 xin <- readr::read_lines("./Data/Xinmoviridae.acc_lst")
-
-
 virus_list <- c(mym,list3,nyan,para,pneu,sun,xin)
+virus_list
+```
 
 
+I also saved it as a csv so I can view it later....possibly make a data table out of it if i wanted to.... but again thats not the point of this project and kinda a waste of time for me right now....but might be worth it down the line 
 
-#and so we make a list of sequences with all of my accessions 
+
+Im going to load another bioconductor package that allows me to deal with large amounts of data and then assemble these guys into one big long list of complete genome sequences
+the fact that I can access any complete genome from one list is very very exciting 
+im not going to print out this list because it is very long....but you get the picture
+```{r, message=FALSE}
 library(biomaRt)
-
 virus_fasta_list <- entrez_fetch_list(db = "nucleotide", 
                                      id =virus_list, 
                                      rettype = "fasta")
 
-
-
 ```
+i also wrote this out as a fasta and the link to it is at the top of the page 
 

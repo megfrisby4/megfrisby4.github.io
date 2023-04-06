@@ -75,7 +75,6 @@ cat(Lloviu_cuevavirus)
 Mengla_dianlovirus <- rentrez::entrez_fetch(db = "nucleotide",
                                           id = "NC_055510", 
                                           rettype = "fasta")
-filo
 
 Bombali_ebolavirus <- rentrez::entrez_fetch(db = "nucleotide",
                       id = "NC_039345", 
@@ -300,7 +299,13 @@ library(biomaRt)
 virus_fasta_list <- entrez_fetch_list(db = "nucleotide", 
                                      id =virus_list, 
                                      rettype = "fasta")
+write.fasta(sequences = virus_fasta_list, names = names(virus_fasta_list), file.out = "./Data_Analytics_Project/Data/virus_genomes.FASTA")
 
 
 write.fasta(sequences = virus_fasta_list, names = names(virus_fasta_list), file.out = "./Data_Analytics_Project/Data/virus_genomes.FASTA")
 #boom here is my fasta of all my virus genomes 
+
+stringr::str_split(virus_fasta_list[1][[1]], pattern = ",")
+genomes <- virus_fasta_list[1][[1]]
+
+
