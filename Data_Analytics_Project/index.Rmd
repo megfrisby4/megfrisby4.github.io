@@ -14,13 +14,19 @@ phylogenies are very important for viral studies especially concerning viral evo
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, error = FALSE)
 #CRAN Packages
+library(dplyr)
+library(tidyverse)
 library(ape)
 library(seqinr)
 library(rentrez)
 library(devtools)
+library(stringr)
+library(Biostrings)
+
+
 #Bioconductor packages 
 library(msa)
-library(Biostrings)
+
 
 #github packages
 library(compbio4all)
@@ -52,6 +58,13 @@ library(Biostrings)
 library(compbio4all)
 library(ggmsa)
 
+```
+
+## Data 
+here is the data table of species and accession number I had to go through many tears to achieve....my cleaning and list skills are totally strengthened now though!
+
+```{r}
+   readr::read_csv("./Data/Virus_species_and_accession_data.csv") %>% kableExtra::kable() %>% kableExtra::kable_classic(lightable_options = 'hover') %>% kableExtra::scroll_box(width="500px", height = "200px")
 ```
 
 
@@ -87,8 +100,9 @@ still not entirely sure why that didn't work.... I will have to do some looking 
 also I want to focus on the less studied, and less prevalent (less genomes recorded) and their relationships 
 
 
-here I am just exploring some functions from the packages I downloaded... rentrez helps me to retrieve sequences from an accession number, and cat organizes the sequence line by line so it is a bit easier to look at. Rentrez also outputs a fasta file which is nice. 
-```{r}
+here I am just exploring some functions from the packages I downloaded... rentrez helps me to retrieve sequences from an accession number, and cat organizes the sequence line by line so it is a bit easier to look at. Rentrez also outputs a fasta file which is nice.
+im not going to show these because they are incredibly long but it works 
+```{r, message=FALSE, results='hide'}
 Lloviu_cuevavirus<- rentrez::entrez_fetch(db = "nucleotide",
                             id = "NC_016144", 
                              rettype = "fasta")
@@ -191,13 +205,14 @@ Wenling_thamnaconus_septentrionalis=Wenling_thamnaconus_septentrionalis)
 ```
 
 and this list is ridiculously long...but its nice
+again not going to show it 
 
-```{r}
+```{r, message=FALSE, results='hide'}
 filo_list
 ```
 
 i can access any sequence from the list like this 
-```{r}
+```{r, results='hide'}
 filo_list$Bombali_ebolavirus
 
 ```
@@ -278,7 +293,7 @@ I also saved it as a csv so I can view it later....possibly make a data table ou
 Im going to load another bioconductor package that allows me to deal with large amounts of data and then assemble these guys into one big long list of complete genome sequences
 the fact that I can access any complete genome from one list is very very exciting 
 im not going to print out this list because it is very long....but you get the picture
-```{r, message=FALSE}
+```{r, message=FALSE, results='hide'}
 library(biomaRt)
 virus_fasta_list <- entrez_fetch_list(db = "nucleotide", 
                                      id =virus_list, 
@@ -286,4 +301,55 @@ virus_fasta_list <- entrez_fetch_list(db = "nucleotide",
 
 ```
 i also wrote this out as a fasta and the link to it is at the top of the page 
+
+the nice thing is the list contains 150 elements one for each sequence
+
+## How I got my data table....
+this was surprisingly hard but I harnessed my knowledge of lists and cleaning data and I did it and Im very happy because there was no way that I could just download this information.... that I knew of! So im proud I was able to use for loops and do this yay!
+
+anyways heres the code for that:
+```{r}
+list_split <- list()
+for (i in 1:length(virus_fasta_list)){list_split[[i]] <- str_split(virus_fasta_list[[i]],pattern = ',')
+}
+
+virus_names <- list()
+for (i in 1:length(list_split)) {virus_names[[i]] <- purrr::map(list_split[[i]],1)
+  
+}
+
+
+virus_species <- list()
+virus_1 <- str_split(virus_names, "\\\\")
+for (i in 1:length(virus_1)) {virus_species[[i]] <- purrr::map(virus_1[[i]][[1]],1)
+  
+}
+
+virus_species <- unlist(virus_species)
+virus_species <- str_remove(virus_species, "^...................")
+virus_species <- str_remove(virus_species, "..$")
+
+df <- data.frame(accession = virus_list, virus_species=virus_species)
+getwd()
+write.csv(df, "./Data/Virus_species_and_accession_data.csv")
+
+```
+
+
+## Making all the sequences in my list useable! That means cleaning the fasta into a file R can use and perform alignments on!
+ 
+```{r}
+genome_list <- list()
+for(i in 1:length(virus_fasta_list)){
+  genome_list[[i]] <- fasta_cleaner(virus_fasta_list[[i]], parse = F)
+}
+```
+
+
+
+
+```{r}
+
+  
+```
 

@@ -308,4 +308,13 @@ write.fasta(sequences = virus_fasta_list, names = names(virus_fasta_list), file.
 stringr::str_split(virus_fasta_list[1][[1]], pattern = ",")
 genomes <- virus_fasta_list[1][[1]]
 
+#source("http://bioconductor.org/biocLite.R")
+
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+BiocManager::install("ShortRead")
+
+
+
 
