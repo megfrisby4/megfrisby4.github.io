@@ -336,8 +336,9 @@ write.csv(df, "./Data/Virus_species_and_accession_data.csv")
 ```
 
 
-## Making all the sequences in my list useable! That means cleaning the fasta into a file R can use and perform alignments on!
- 
+## Making all the sequences in my list useable! 
+
+That means cleaning the fasta into a file R can use and perform alignments on!
 ```{r}
 genome_list <- list()
 for(i in 1:length(virus_fasta_list)){
@@ -346,10 +347,85 @@ for(i in 1:length(virus_fasta_list)){
 ```
 
 
-
-
+Putting each element into a(n) (empty) vector:
 ```{r}
+virus_vector <- rep(NA, length(genome_list))
 
-  
+```
+The output is literally a vector of 150 NA's...but now I can fill it up with a forloop and I am getting handy dandy with them 
+
+I'll give you a little glimpse of the result
+```{r}
+for(i in 1:length(virus_vector)){
+  virus_vector[i] <- genome_list[[i]]}
+glimpse(virus_vector)
 ```
 
+as you can probably imagine I now have a vector of 150 viral genomes
+you would literally be scrolling down your screen for hours so I wont show it!
+
+I will give the vector names from what I extracted from the orginal fasta file previously 
+```{r}
+names(virus_vector) <- virus_species
+```
+
+
+## Converting to a stringset using BioStrings
+
+I will convert my newly made vector into a biostrings stringset: 
+```{r}
+virus_vector_ss <- Biostrings::DNAStringSet(virus_vector)
+virus_vector_ss 
+
+```
+
+just a quick note, most mononegavirales have rna genomes, as you can see, these sequences (and they are also this way in NCBI) represent DNA genomes, so keep in mind this would be the compliment to the actual viral genomes. The analyses will still work the same because these are all RNA viruses and so we are performing an analysis on all of their compliments, and their compliments are as equal to each other as their actual genomes are
+
+## Performing Multiple sequence alignment 
+How genomes align relative to eachother give scientists the information needed to construct a phylogenetic tree. An informative diagram of virus's evolutionary relationship to eachother. 
+
+phylogenetic trees are very important to pathology and entomology as they can help scientists predict properties of newly discovered viral species such as pathogenicity, zoonotic potential, vectorization method, and host range. 
+
+```{r}
+virus_align <- msa(virus_vector_ss,
+                     method = "ClustalW")
+```
+This gives me the message 'use default substitution matrix' which tells me the program is working to come up with the ideal alignment of all the sequences by assigning values to matches mismatches and indels. 
+
+now get a feel for what this new object is... specifically what its class is 
+```{r}
+
+class(virus_align)
+```
+we want its class to be just DNA multiple alingment so we'll need to do some minor tweaking 
+```{r, results='hide'}
+class(virus_align) <- "DNAMultipleAlignment"
+
+```
+i want to work with this object with functions from the seqinr package so Ill need to do a little more tweaking with a function called msaConvert
+
+I will name the new object I am creating virus_align_seqinr so that I can get it all straight
+
+the output is incredibly long there are 150 genomes here... so I will not show you.....youre welcome!
+```{r, results='hide'}
+virus_align_seqinr <- msaConvert(virus_align, 
+                                   type = "seqinr::alignment")
+```
+
+looking at my full alignment 
+```{r, results='hide'}
+compbio4all::print_msa(alignment = virus_align_seqinr, 
+          chunksize = 60)
+```
+
+
+
+## Representing my multiple sequence alingment as an R plot  
+using ggmsa package (and function) to plot my virus_alignment... not the one that has been adjusted for seqin R we want the original alignment for this to work correctly
+```{r}
+ggmsa::ggmsa(virus_align, 
+      start = 2000, 
+      end = 2100) 
+```
+
+#
