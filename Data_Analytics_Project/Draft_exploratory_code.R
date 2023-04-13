@@ -289,6 +289,7 @@ sun <- readr::read_lines("./Data_Analytics_Project/Data/Sunshinevirus.acc_lst")
 xin <- readr::read_lines("./Data_Analytics_Project/Data/Xinmoviridae.acc_lst")
 
 
+
 virus_list <- c(mym,list3,nyan,para,pneu,sun,xin)
 write.table(virus_list, file="./Data_Analytics_Project/Data/virus_accessions.csv", row.names = FALSE, col.names = "accession number")
 
