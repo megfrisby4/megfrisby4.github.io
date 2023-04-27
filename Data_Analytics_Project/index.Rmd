@@ -7,16 +7,21 @@ output:
 pagetitle: Data Analytics Final Project
 title: "Data Analytics Final Project - Constructing a Viral Phylogenetic Tree"
 ---
-## Order Mononegavirales 
-### If you didn't think english could get any harder... there's Latin
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EXfB2YCeTDI?start=2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<chunk1 style="background-color:#33475b">
+## Project Aim 
+The aim of this project is to construct a phylogenetic tree of viruses in the order Mononegavirales based on differentiation in their complete genomic sequences obtained from Genbank. The tree visually iterate the evolutionary relationships between viruses in this large order including those viruses in several important families. Some such families under the order Mononegavirales are Filoviridae (contains Ebola virus), Rhabdoviridae (includes Rabies virus), and Paromixoviridae (contains Measles and Mumps viruses).
+
+### Order Mononegavirales 
+**If you didn't think english could get any harder... there's Latin**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EXfB2YCeTDI?start=2" frameborder="0" allowfullscreen data-external="1">
+</iframe>
 
 Mononegavirales are an order of single stranded negative sense RNA viruses comprising 11 virus families of which many members are capable of causing significant human disease (or disease of vertebrate animalia). These viruses consist of non segmented genomes ranging from 8-20KB in length (8,00 - 20,000 base pairs or about 3,00-7,00 amino acids). Most viruses of the order Mononegavirales replicate in host-cell cytoplasm (with the exception of certain Bornaviruses which replicate in the nuclei), and once abundant in the host body can attack the immune, nervous, excretory, and other major organ systems causing a vast range of symptoms with varied severity. It is important to note that not all Mononegavirus infections are symptomatic, or severe.  Some examples of Mononegavirales capable of causing infection in humans are Nipah virus, Ebola, Rabies virus, Measles virus and Mumps virus.
 
 As with many viruses, understanding their evolutionary relationships is exceedingly important to the preservation of public health, especially in underdeveloped countries. 
 
 Pylogenies are very important for viral studies especially concerning viral evolution of potentially life threatening diseases. 
-
+</chunk1>
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(dplyr)
