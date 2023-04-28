@@ -7,134 +7,264 @@ output:
 pagetitle: Data Analytics Final Project
 title: "Data Analytics Final Project - Constructing a Viral Phylogenetic Tree"
 ---
-<chunk1 style="background-color:#33475b">
 ## Project Aim 
-The aim of this project is to construct a phylogenetic tree of viruses in the order Mononegavirales based on differentiation in their complete genomic sequences obtained from Genbank. The tree visually iterate the evolutionary relationships between viruses in this large order including those viruses in several important families. Some such families under the order Mononegavirales are Filoviridae (contains Ebola virus), Rhabdoviridae (includes Rabies virus), and Paromixoviridae (contains Measles and Mumps viruses).
+ <font size="3">The aim of this project is to construct a phylogenetic tree of viruses in the order Mononegavirales based on differentiation in their complete genomic sequences obtained from Genbank. The tree will visually iterate the evolutionary relationships between viruses in this large order, including those viruses in several important families whose members are known to be pathogenic to humans. Some such families under the order Mononegavirales are Filoviridae (contains Ebola virus), Rhabdoviridae (includes Rabies virus), and Paromixoviridae (contains Measles and Mumps viruses). <font>
 
-### Order Mononegavirales 
-**If you didn't think english could get any harder... there's Latin**
+
+## Order Mononegavirales 
+ <font size="3">If you didn't think english could get any harder... there's Latin<font>
+```{r,echo=FALSE, out.height=200, out.width=800}
+knitr::include_graphics("../media/pronounce.png")
+```
+
+ <font size="3"> And if you still don't understand how to say this word (how could you not?!) here's something to confuse you a little bit more!<font>
+
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EXfB2YCeTDI?start=2" frameborder="0" allowfullscreen data-external="1">
 </iframe>
+### Background Information
+ <font size="3"> Mononegavirales are an order of single stranded negative sense RNA viruses comprising 11 virus families of which many members are capable of causing significant human disease (or disease of vertebrate animalia). These viruses consist of non segmented genomes ranging from 8-20KB in length (8,00 - 20,000 base pairs or about 3,00-7,00 amino acids). Most viruses of the order Mononegavirales replicate in host-cell cytoplasm (with the exception of certain Bornaviruses which replicate in the nuclei), and once abundant in the host body can attack the immune, nervous, excretory, and other major organ systems causing a vast range of symptoms with varied severity. It is important to note that not all Mononegavirus infections are symptomatic, or severe.  Some examples of Mononegavirales capable of causing infection in humans are Nipah virus, Ebola, Rabies virus, Measles virus and Mumps virus.</font>
+ 
 
-Mononegavirales are an order of single stranded negative sense RNA viruses comprising 11 virus families of which many members are capable of causing significant human disease (or disease of vertebrate animalia). These viruses consist of non segmented genomes ranging from 8-20KB in length (8,00 - 20,000 base pairs or about 3,00-7,00 amino acids). Most viruses of the order Mononegavirales replicate in host-cell cytoplasm (with the exception of certain Bornaviruses which replicate in the nuclei), and once abundant in the host body can attack the immune, nervous, excretory, and other major organ systems causing a vast range of symptoms with varied severity. It is important to note that not all Mononegavirus infections are symptomatic, or severe.  Some examples of Mononegavirales capable of causing infection in humans are Nipah virus, Ebola, Rabies virus, Measles virus and Mumps virus.
-
-As with many viruses, understanding their evolutionary relationships is exceedingly important to the preservation of public health, especially in underdeveloped countries. 
-
-Pylogenies are very important for viral studies especially concerning viral evolution of potentially life threatening diseases. 
-</chunk1>
-```{r setup, include=FALSE}
+### Project Importance 
+ <font size="3"> Understanding the evolutionary relationships of viruses especially those causing the pathogenesis of high mortality and morbidity diseases is exceedingly important to the preservation of public health, especially in underdeveloped countries where bio surveillance programs and methods are not as strong or advanced as those in other nations. Tracking species divergence as a result of viromic evolution including genomic mutation over time can help scientists and public health officials to create vaccines, predict local, province, and national epidemics or even pandemics, determine host ranges, and develop effective antivirals and treatments for existing infectious strains as well as potentially related or derived strains. Phylogenetic trees quantitatively represent these evolutionary relationships of specific viral taxa based on genome differentiation as a hypothesis of species divergence over time. These trees explain vast amounts of genomic data in an easy to understand format for scientists and the everyday person alike.<font>
+ 
+## Project Methods 
+ <font size="3"> To communicate my final project I will detail how I went about constructing the phylogenetic tree which I built based on the complete genomic sequences of 220 virus isolates in the order Mononegavirales obtained from Genbank <font>
+ 
+### Step 1: Acquire and Load R Packages To Import and Manipulate Genomic Data
+ <font size="3"> Below I load up all R packages, some very unfamiliar to me before the initiation of this project, into my work space <font>
+```{r setup, include=TRUE, message=FALSE}
+#CRAN Packages
 library(tidyverse)
 library(dplyr)
 library(readr)
 library(kableExtra)
+library(ape)
+library(seqinr)
+library(rentrez)
+library(devtools)
+library(stringr)
+library(rentrez)
+library(phangorn)
 
+#Bioconductor packages 
+library(msa)
+library(Biostrings)
+library(ggtree)
+library(DECIPHER)
+library(biomaRt)
+
+#github packages
+library(compbio4all)
+library(ggmsa)
 ```
 
+### Step 2: Obtaining genomes for viral sequences 
+<font size="3">Complete genomic sequences for the viruses included in my phylogenetic tree were found using NCBI. The viruses selected were of all complete genomes available for every family in the order Mononegavirales except for Rhabdoviridae. Some genomes in the order Rhabdoviridae were excluded from in my dataset and analysis based on sheer amount of genomes and lack of computing power. Instead of including all complete genomes for Rhaboviruses in my project I used the 'filter by host' feature in NCBI and selected those Rhabdoviridae with vertebrate hosts. Lists of Genbank accession numbers were downloaded from NCBI as a seperate file for each family. 
 
-## A download of the fasta file i created (220 complete viral genomes)
-[complete list of virus genomes](http://megfrisby4.github.io/Data_Analytics_Project/Data/virus_genomes.FASTA)
--warning...it's a big old honker (2.9MB) beware!
+My final dataset thus consisted of 70 complete genomes of viruses from the family Rhabdoviridae and 150 complete genomes of viruses in other families within the order Mononegavirales. 
 
-## What I have so far.... (my exploratory code...definetly unfinished)
-a few packages I need to construct my phylogeny (and acquire the correct data from NCBI):
+Here is the code I used to import the accession lists (saved locally on my computer) into R for further analysis. 
+```{r, eval=FALSE}
+filo <- readr::read_lines("./Data/Filoviridae.acc_lst")
+art <- readr::read_lines("./Data/Artoviridae.acc_lst")
+born <- readr::read_lines("./Data/Bornaviridae.acc_lst")
+lisp <- readr::read_lines("./Data/Lispiviridae.acc_lst")
+mym <- readr::read_lines("./Data/Mymonaviridae.acc_lst")
+nyan <- readr::read_lines("./Data/Nyamiviridae.acc_lst")
+para <- readr::read_lines("./Data/Paramyxoviridae.acc_lst")
+pneu <- readr::read_lines("./Data/Pneumoviridae .acc_lst")
+sun <- readr::read_lines("./Data/Sunshinevirus.acc_lst")
+xin <- readr::read_lines("./Data/Xinmoviridae.acc_lst")
+rhab <- readr::read_lines("./Data/rhabdovirus.acc_lst")
+virus_accession_vector <- c(filo,art,born,lisp,mym,nyan,para,pneu,sun,xin,rhab)
+```
+```{r, include=FALSE}
+virus_accession_vector <- readRDS("./Output/virus_accession_vector")
+```
 
-## Data 
-The data table of many tears!
-
+This generates one long vector of accession numbers. Here's a glimpse:</font>
 ```{r}
-   readr::read_csv("./Data/Virus_species_and_accession_data.csv") %>% kableExtra::kable() %>% kableExtra::kable_classic(lightable_options = 'hover') %>% kableExtra::scroll_box(width="500px", height = "200px")
+glimpse(virus_accession_vector)
+```
+### Step 3: Create a FASTA File of All Complete Genome Sequences
+<font size="3"> The next step for me was naturally to create a FASTA file of all complete genome sequences that one can download and view. This is a way to combine all genomic data into a single document (a specialized list in R) that can be re-imported later for further analysis. 
+
+I accomplished this process with the `rentrez` package using the function `entrez_fetch_list()`. This function takes in Genbank accession numbers, connects to an NCBI database `db` (in my case the NCBI nucleotide database) and generates a list of complete genome sequences in FASTA format. The FASTA can then be saved with the function `write.fasta()` The file is saved onto my computer as virus_genomes.FASTA. 
+
+If you want to view the FASTA for yourself here is a link to download: 
+[complete list of virus genomes](http://megfrisby4.github.io/Data_Analytics_Project/Data/virus_genomes.FASTA)
+(2.9MB) 
+
+Instead of copying and pasting or typing out each individual accession number to fulfill the `names` argument for the function which would be excruciating, I simply inserted my previously made vector of accession numbers, which is saved as the object `virus_accession_vector`. 
+
+Here is the code to pull complete genome sequences from NCBI by accession numbers and save as a FASTA:</font>
+```{r, eval=FALSE}
+virus_fasta_list <- entrez_fetch_list(db = "nucleotide", 
+id =virus_list, 
+rettype = "fasta")
+write.fasta(sequences = virus_fasta_list, names = names(virus_accession_vector), 
+            file.out = "./Data/virus_genomes.FASTA")
+```
+
+### Step 4: Create a Data Table 
+<font size="3"> The next thing I wanted to do was create a data table where the accession number for a virus, species, and respective family could be viewed at once. This was surprisingly tricky. After much frustration, and many unnescessary forloops I was able to accomplish this.
+
+Anyway, here is the (slightly embarassing) code I wrote to acquire the data for my table:</font> 
+```{r, eval=FALSE}
+#Assign family names to each taxa IN ORDER of how accession numbers were concatenated (I physically counted how many of each...and double checked)
+s1 <- rep("Filoviridae", 12)
+s2 <- rep("Artoviridae",7 )
+s3 <- rep("Bornaviridae",18)
+s4 <- rep("Lispiviridae", 6)
+s5 <- rep("Mymonaviridae", 4)
+s6 <- rep("Nyamiviridae", 13)
+s7 <- rep("Paramyxoviridae",72)
+s8 <- rep("Pneumoviridae", 9)
+s9 <- rep("Sunshinevirus", 1)
+s10 <- rep("Xinmoviridae",8)
+s11 <- rep("Rhabdoviridae", 70)
+
+#combine into a vector (same length as virus_accession_vector)
+fam <- c(s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11)
+#create data frame with accession number and family. 
+df <- base::data.frame(accession_number=virus_accession_vector, virus_family=fam)
+
+#WE AIN"T DONE YET
+
+#creating vector of organism names by splitting up the FASTA I just created and extracting from there with a billion forloops. 
+
+#To tell you the truth I cannot even explain what my thought process was here... just trial error and tears I think. But in the end, it worked!
+list_split <- list()
+for (i in 1:length(virus_fasta_list)){list_split[[i]] <- str_split(virus_fasta_list[[i]],pattern = ',')
+}
+virus_names <- list()
+for (i in 1:length(list_split)) {virus_names[[i]] <- purrr::map(list_split[[i]],1)
+
+}
+virus_species <- list()
+virus_1 <- str_split(virus_names, "\\\\")
+for (i in 1:length(virus_1)) {virus_species[[i]] <- purrr::map(virus_1[[i]][[1]],1)
+}
+virus_species <- unlist(virus_species)
+virus_species <- str_remove(virus_species, "^...................")
+virus_species <- str_remove(virus_species, "..$")
+
+#overwriting my original data frame df, with a new one, where virus species is a column. 
+df <- data.frame(df, virus_species=virus_species)
+```
+
+#### My Data Table 
+<font size="3"> The data table of many tears!</font>
+```{r, echo=FALSE}
+   readr::read_csv("./Data/Virus_species_and_accession_data.csv") %>% kableExtra::kable() %>% kableExtra::kable_classic(lightable_options = 'hover') %>% kableExtra::scroll_box(width="800px", height = "400px")
+```
+
+### Step 5: Sequence Alignment
+#### **Making Sequences Useable**
+<font size="3"> The first thing I need to do to get a good alignment, is clean my sequences into a useable format. Luckily for me, this is a fairly straightforward process and there are several good functions to help like `fasta_cleaner` from the package `campbio4all`. In esssence I need to make all my sequences into a single character vector of length 220. This means each individual component of the vector needs to be a single character string of a complete genome. 
+
+To accomplish this first I will use the function `fasta cleaner` on each element in virus fasta list:
+```{r, eval=FALSE}
+genome_list <- list()
+for(i in 1:length(virus_fasta_list)){
+  genome_list[[i]] <- fasta_cleaner(virus_fasta_list[[i]], parse = F)
+}
+```
+
+Then, I need to create an empty vector of length 220. This will literally be a vector of 220 NA's. Dont worry. I will fill it up later with sequences! 
+
+Note: genome list is the same length as the number of genome sequences in my FASTA file, which is 220. So saying `virus_vector = rep(NA, 220)` and `virus_vector = rep(NA, length(genome_list))` accomplishes the same thing.
+```{r, eval=FALSE}
+virus_vector <- rep(NA, length(genome_list))
+
+```
+
+Next, I replace each NA in my vector with a complete sequence using a forloop
+```{r, eval=FALSE}
+for(i in 1:length(virus_vector)){
+  virus_vector[i] <- genome_list[[i]]}
+```
+
+Last, I add the names of the virus species (that I extracted earlier) to the virus vector:
+```{r, eval=FALSE}
+names(virus_vector) <- virus_species
+```
+```{r, include=FALSE}
+virus_vector <- readRDS("./Output/virus_vector")
+```
+
+Heres a glimpse of that long character vector:</font>
+```{r}
+glimpse(virus_vector)
+```
+#### **Making a stringset using BioStrings**
+
+Converting my newly made vector into a `Biostrings` DNA stringset. It is important to note that Mononegavirales genomes are RNA so any sequence extracted is going to be the compliment of the actual genome. This doesn't affect any part of in phylogenetic tree construction as it is based on nucleotide differentiation between genomes and because their nucleotides are all complimented the differences would be same. The original sequences pulled from Genbank were actually in DNA format (using A, C, T, G), and so they too are the compliment of the viral genomes. 
+
+Here is the code to construct the stringset:
+```{r, eval =FALSE}
+virus_ss <- Biostrings::DNAStringSet(virus_vector)
+```
+
+```{r, include=FALSE}
+virus_ss <- readRDS("./Output/virus_string_set")
+```
+Here is the stringset:
+```{r}
+virus_ss
 ```
 
 
-## Using rentrez to explore sequences from NCBI nucleotide database 
+#### **Aligning sequences...FINALLY!!!**
+How genomes align relative to each other give the information needed to construct a phylogenetic tree. Differences in the alignment from one genome to another reflect evolutionary differentiation. This evolutionary differentiation allocates to the 'distance' between two genomes. A phylogeny is an informative diagram of virus's evolutionary relationships or distances to and from each other, less genomically 'distant' viruses are placed closer together on the tree while more distant viruses are placed farther apart on the tree. Positions in the tree are assigned by best fit models that can interpret genomic alignments. 
 
-some initial setup 
-db = "nucleotide" indicates that I will be using accessing NCBI's nucleotide database.
-rettype = "fasta" indicates each nucleotide sequence will be returned to me in fasta format 
+Virus alignment was performed using the `alignseqs()` function from the `DECIPHER` package. 
 
+Here is the code for the alignment:
+```{r, eval=FALSE}
+virus_align <- DECIPHER::AlignSeqs(virus_ss)
+```
 
-Here I am just exploring some functions from the new packages I downloaded. The entrez_fetch allows me to retrieve full genome nucleotide sequences from the NCBI database according to a unique accession number assigned to a tested viral sample.
-The cat function organizes the sequence line by line so it is a bit easier to look at. 
-Here I recall the full genomic sequence for Lloviu Cuevavirus and organize it in an easy to read format using cat
-The genome is incredibly long so I will hide the output 
+```{r, include=FALSE}
+virus_align <- readRDS("./Output/virus_align")
+```
 
-## use this to explain why phylogenies are important... even viruses in the same family can greatly differ!
-
-Here I recall all the genomes of viruses in the family filoviridae by accession number in fasta format and make a list of the sequences manually 
-
-I can access any sequence from the list like this:
-filolist$[name of filo virus species]
-Here's a sneak peek at the genome of the Bombali Ebolavirus:
-
-## Exploring a bit of pairwise alignment
-I can do a simple pairwise alignment with the Biostrings function pairwiseAlignment.
-Here is the pairwise alignment of Bundibugyo and Reston Ebolaviruses:
-
-In general, the lower the score, the more  the genomes differ,  the higher the score the more similar the genomes are.
-However, pairwise alignments scores are not very intuitive in and of themselves. 
-Another function will tell us what percentage of the genomes align (pairwise sequence identity), a much more intuitive result!
-
-All in all, these viruses share only 63.31% sequence identity! This goes to show how incredibly diverse viruses, even within the same family can be, and why they are so terrifying!
-
-I predicted Bundibugyo ebolaviruse and Reston Ebolavirus would be quite different and they are in fact very diverse characteristically in both geographic origin and host range. 
-
-Let's take a look at 2 viruses I believe will be more genetically similar, 2 different strains of Marburg Ebolavirus. 
+Here is a peek of the alignment:
+```{r}
+virus_align
+```
 
 
+By default the `alignseqs()` function creates a `DNAstringSet` object. Although I can use this object to create basic phylogenetic trees with distance based methods, I will need to convert to a `DNAMultipleAlignment` object moving forward to create more complex and representative trees using model optimization and other methods.
 
-A much higher score, but again, rather uninformative, and un-intuitive, lets have a look at the pid (percent identity)
+This is an easy conversion. I will keep `virus_align` as a `DNAStringSet` and create a `DNAMultipleAlignment` called `Multiple_virus_align, so I can still utilize both. 
+```{r, eval=FALSE}
+multiple_virus_align <- DNAMultipleAlignment(virus_align)
+```
 
-These genomes share about 79.3% sequence identity! They have much more in common than the previous two viruses, yet are still in the same family (taxonomic grouping)
+```{r, include=FALSE}
+multiple_virus_align <- readRDS("./Output/virus_align2")
+```
 
-## Pulling out the big guns: recalling and assembling 220 viral genomes 
+Heres a look at the multiple alignment:</font>
+```{r}
+multiple_virus_align
+```
+## Constructing a Phylogenetic Trees
+<font size="3"> At last my friends, we begin to make phylogenetic trees!
 
 
-I am going to load and utilize the BiomaRt package which helps my system to process and comprehend large amounts of data, then I will assemble a single list of complete genome sequences using my selection of accession numbers (corresponding to specific viruses) in fasta format.
-I will accomplish this using the entrez_fetch_list() function from the campbio4all package.
 
-**Note**: access the FASTA I created of all 220 complete viral genomes with the link at the top of this webpage, you can view every single nucleotide for yourself! 
 
-Creating a vector of family names that corresponds to the virus accession numbers.
-Checking the length to make sure every genome is accounted for. 
-Concatenating the accession number and family name into a data frame.
-Saving as a csv for further display/use.
 
-## How I got my data table....
-this was surprisingly hard but I harnessed my knowledge of lists and cleaning data and I did it and Im very happy because there was no way that I could just download this information.... that I knew of! So im proud I was able to use for loops and do this yay!
 
-anyways heres the code for that:
 
-## Making all the sequences in my list useable! 
 
-Cleaning the sequences into a neat format I can perform alignments on!
-Here is a peek:
 
-Making the list into a single vector of length 220 (one character string for each genome)
-Im starting with an empty vector that I can then fill up, the output is literally a vector of 220 NA's:
 
-Then I fill the  vector, replacing each NA with a full genome sequence.
-As you can see the vector no longer cosistis of NA's, it now consists of DNA sequences. 
 
-I will give the vector the virus names from what I extracted in the orginal fasta file previously 
-
-## Converting to a stringset using BioStrings
-
-Converting my newly made vector into a biostrings DNA stringset: 
-This I did in another script and saved as an RDS. It took about 2 hours to run so I am just importing it!
-
-mwhahahaha mad scientist moment!
-**just a quick note**, most mononegavirales have rna genomes, as you can see, these sequences (and they are also this way in NCBI) represent DNA genomes, so keep in mind this would be the compliment to the actual viral genomes. The analyses will still work the same because these are all RNA viruses and so we are performing an analysis on all of their compliments, and their compliments are as equal to each other as their actual genomes are
-
-## Performing Multiple sequence alignment 
-How genomes align relative to eachother give scientists the information needed to construct a phylogenetic tree. An informative diagram of virus's evolutionary relationship to each other. 
-
-phylogenetic trees are very important to pathology and entomology as they can help scientists predict properties of newly discovered viral species such as pathogenicity, zoonotic potential, vectorization method, and host range. 
-
-again I am importing this from another script as an RDS
-The actual command is commented.
-
-by default the alignseqs function creates a DNA stringset object, I must convert this into a DNAMultipleAlingment object so that alignment can be used to create my phylogenetic tree.
-I can do this with the following code 
 
 I want to work with this object with functions from the seqinr package so Ill need to do a little more tweaking with a function called msaConvert
 I will name the new object I am creating virus_align_seqinr so that I can get it all straight
