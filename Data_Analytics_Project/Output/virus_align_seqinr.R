@@ -17,6 +17,6 @@ library(Biostrings)
 #github packages
 library(compbio4all)
 library(ggmsa)
-virus_vector_ss <- readRDS("./Data_Analytics_Project/Output/virus_string_set")
+virus_ss <- readRDS("./Data_Analytics_Project/Output/virus_string_set")
 virus_align <- readRDS("./Data_Analytics_Project/Output/virus_align")
 virus_align <- readRDS("./Data_Analytics_Project/Output/virus_align")

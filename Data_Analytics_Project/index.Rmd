@@ -160,6 +160,10 @@ df <- data.frame(df, virus_species=virus_species)
 ```{r, echo=FALSE}
    readr::read_csv("./Data/Virus_species_and_accession_data.csv") %>% kableExtra::kable() %>% kableExtra::kable_classic(lightable_options = 'hover') %>% kableExtra::scroll_box(width="800px", height = "400px")
 ```
+```{r, include=FALSE}
+df <- read_csv("./Data/Virus_species_and_accession_data.csv")
+
+```
 
 ### Step 5: Sequence Alignment
 #### **Making Sequences Useable**
@@ -252,17 +256,235 @@ Heres a look at the multiple alignment:</font>
 ```{r}
 multiple_virus_align
 ```
-## Constructing a Phylogenetic Trees
-<font size="3"> At last my friends, we begin to make phylogenetic trees!
+## Constructing Phylogenetic Trees
+<font size="3"> At last my friends, we begin to make phylogenetic trees!</font>
+
+### Constructing a Phylogenetic Tree Using Distance Based Methods
+<font size="3"> To begin with we will construct a basic phylogenetic tree using neighbor join method `NJ`. Neighbor join method takes in a large stringset that has been aligned such as `virus align` that I created and uses a distance matrix to create the tree. 
+
+To start my Neighbor Join tree I first need to create a distance matrix. I will do this with the `DECIPHER` package using the `Distance matrix function.
+
+Here is the code:
+```{r, eval=FALSE}
+virus_dist <- DECIPHER::DistanceMatrix(virus_align, type='matrix')
+```
+
+```{r, include=FALSE}
+virus_dist <- readRDS("./Output/virus_dist")
+```
+
+Make it into a distance matrix:
+```{r, eval=FALSE}
+virus_dist <- as.dist(virus_dist)
+```
+
+Here's a glimpse at the values:
+```{r}
+virus_dist[1:10]
+```
+```{r, include=FALSE}
+virus_dist_rounded <- readRDS("./Output/virus_dist_rounded")
+```
+
+round the values in the matrix:
+```{r, eval=FALSE}
+virus_dist_rounded <- round(virus_dist, digits=3)
+```
+A glimpse at the rounded values:
+```{r}
+virus_dist_rounded[1:10]
+```
+In hindsight the actual values don't matter that much, its the tree that does the explaining!
+
+To create the tree we use the function `nj()` from the package `ape` and insert the non rounded distances `virus_dist`
+```{r, eval=FALSE}
+treeNJ <- nj(virus_dist)
+```
+```{r, include=FALSE}
+treeNJ <- readRDS("./Output/treeNJ")
+```
+
+Here's a zoomed out view of the resulting tree. The point is to be able to see the whole thing all at once! I know it's huge!</font>
+```{r, echo=FALSE}
+readRDS("./Output/treenj_canvas")
+```
+<font size = "4"> **Below you can scroll over the tree to zoom in on organism names**
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {box-sizing: border-box;}
+
+.img-zoom-container {
+  position: relative;
+   
+}
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 180px;
+  height: 75px;
+}
+.img-zoom-result {
+position: relative;
+border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 800px;
+  height: 300px;
+}
+</style>
+<script>
+function imageZoom(imgID, resultID) {
+  var img, lens, result, cx, cy;
+  img = document.getElementById(imgID);
+  result = document.getElementById(resultID);
+  /*create lens:*/
+  lens = document.createElement("DIV");
+  lens.setAttribute("class", "img-zoom-lens");
+  /*insert lens:*/
+  img.parentElement.insertBefore(lens, img);
+  /*calculate the ratio between result DIV and lens:*/
+  cx = result.offsetWidth / lens.offsetWidth;
+  cy = result.offsetHeight / lens.offsetHeight;
+  /*set background properties for the result DIV:*/
+  result.style.backgroundImage = "url('" + img.src + "')";
+  result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+  /*execute a function when someone moves the cursor over the image, or the lens:*/
+  lens.addEventListener("mousemove", moveLens);
+  img.addEventListener("mousemove", moveLens);
+  /*and also for touch screens:*/
+  lens.addEventListener("touchmove", moveLens);
+  img.addEventListener("touchmove", moveLens);
+  function moveLens(e) {
+    var pos, x, y;
+    /*prevent any other actions that may occur when moving over the image:*/
+    e.preventDefault();
+    /*get the cursor's x and y positions:*/
+    pos = getCursorPos(e);
+    /*calculate the position of the lens:*/
+    x = pos.x - (lens.offsetWidth / 2);
+    y = pos.y - (lens.offsetHeight / 2);
+    /*prevent the lens from being positioned outside the image:*/
+    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+    if (x < 0) {x = 0;}
+    if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+    if (y < 0) {y = 0;}
+    /*set the position of the lens:*/
+    lens.style.left = x + "px";
+    lens.style.top = y + "px";
+    /*display what the lens "sees":*/
+    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="img-zoom-container">
+  <img id="myimage" src="plot_nj.png" width="220" height="420">
+  <div id="myresult" class="img-zoom-result"></div>
+</div>
 
 
 
+<script>
+// Initiate zoom effect:
+imageZoom("myimage", "myresult");
+</script>
 
+</body>
+</html>
 
+<font size="3"> Neighbor joining is not the most accurate or representative method of creating a phylogenetic tree however. To construct my best phylogenetic tree I will use a different method than a basic neighbor join.</font>
 
+### Building a Phylogenetic Tree From an Optimized Model
+<font size="3"> To build the best phylogenetic tree possible I will use an optimized model. By selecting a best fit model for my data to base my tree upon I will be able to build the most accurate phylogenetic tree possible. 
 
+To begin with I will import cleaned aligned sequences (from earlier) that I previously saved into a FASTA file with the function `write.fasta`. For the purposed of this assignment I will not show the code to write the FASTA as I feel it is unnecessary, but I will show importing the FASTA. I will save the imported sequences as the object `viruses` for the purpose of identifying that the aligned sequences are in FASTA format.
 
+```{r}
+viruses <- read.phyDat(file = "./Data/virus_align.FASTA",
+                        format = "fasta")
+```
 
+From here I can construct several different trees like a `upgma` based on distance methods `dm` or a tree using `pratchet`. However these would still be relatively simple trees. And I want a better one
+
+One way to measure how 'good' your phylogenetic tree is is with a parsimony score. The lower the parsimony score, the more representative or your total data set the tree is. The parsimony score is a measure of how many deletions or changes had to be made to your data (in my case 220 genome sequences of 8,000 - 20, 000 nucleotides each) in order to construct your tree.
+
+to calculate the parsimony score for my previous tree `treeNJ` I can simply run the function `parsimony` from the `phangorn` package compared to my sequence data `viruses` 
+```{r}
+parsimony(treeNJ, viruses)
+```
+As you can see, over **1 million** changes had to be made to my data to create this tree. In other words this tree **SUCKS** lets see if we can make it suck less :)
+
+First, lets see what the parsimony scores would be for `upgma` `pratchet` and even `random additon` methods, just for curiosity. 
+
+Building `upgma` `random addition` and `pratchet` trees using phanghorn.
+```{r, eval=FALSE}
+dm  <- dist.ml(viruses)
+#building the same distance matrix I made before, just in a different way. 
+treeUPGMA  <- upgma(dm)
+treeRA <- random.addition(viruses)
+treeRatchet  <- pratchet(viruses, trace = 0, minit=100)
+```
+
+```{r, include=FALSE}
+treeUPGMA <- readRDS("./Output/treeUPGMA")
+treeRA <- readRDS("./Output/treeRA")
+treeRatchet <- readRDS("./Output/treeRatchet")
+```
+And finding their parsimony scores:
+```{r}
+parsimony(c(treeUPGMA,treeRA, treeRatchet), viruses)
+```
+These are down to under 1 million. Which might be about the best we can do... it looks like treeRAtchet is the best so far. Let's see if we can do any better using a maximum likelihood approach by selecting a best fit model. 
+
+To build a better tree the modeltest `mt` function from the `Phangorn` package.This is extremely computationally heavy:
+```{r, eval=FALSE}
+mt <- modelTest(viruses)
+```
+```{r, include=FALSE}
+mt <- readRDS("./Output/mt")
+```
+This gives a list of possible models, and their performance values (like AIC). Here's the first 10 rows of the resulting data frame. (it is over 92 rows long)
+```{r}
+mt[1:10,]
+```
+This next function takes over 24 hours to run. It selects at optimized model from `mt` to create a the most representative tree possible from my data. 
+```{r, eval=FALSE}
+fit_mt <- pml_bb(mt, control = pml.control(trace = 0))
+```
+```{r, include=FALSE}
+fit_mt <- readRDS("./Output/fit_mt")
+```
+Here is the output of `fit_mt`. It shows the model selected and relative rates of each nucleotide which is pretty informative!
+```{r}
+fit_mt
+```
+I can access the tree generated by calling:
+```{r}
+fit_mt$tree
+```
+Now to compare the parsimony scores:
+```{r}
+parsimony(c(treeRA, treeNJ, treeRatchet, fit_mt$tree), viruses)
+```
+Just based on parsimony score, it appears that `treeRA` and `treeRatchet` may outperform `fit_mt$tree`. But that is not necessarily the case. Parsimony score is only based on changes in the data. Not necessarily how representative of the data the tree actually is. Because `fit_mt$tree` was generated from the best fitting model of over 95 simulated models, I have a gut feeling it is going to be the best tree, because it most likely is using the best model. 95 models were tested against the data using the `mt` and `pml_bb` method and only one model was used with the other methods, so I choose the fit_mt$tree. Basically parsimony score gives us an idea of how well the tree represents the data but it isn't everything, its just one measure and several of the methods have very close parsimony scores nonetheless. Based on just parsimony score however `treeRatchet` is the front runner. 
 
 
 

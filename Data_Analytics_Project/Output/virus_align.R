@@ -1,10 +1,10 @@
 virus_vector_ss <- readRDS("./Data_Analytics_Project/Output/virus_string_set")
 class(virus_vector_ss)
 #rather than 
-virus_align <- msa(virus_vector_ss,
+virus_align <- msa(virus_ss,
                    method = "ClustalW")
 #more noteable
-virus_align <- DECIPHER::AlignSeqs(virus_vector_ss)
+virus_align <- DECIPHER::AlignSeqs(virus_ss)
 saveRDS(virus_align,"./Data_Analytics_Project/Output/virus_align")
 
 

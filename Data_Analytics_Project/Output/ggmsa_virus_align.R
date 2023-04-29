@@ -6,4 +6,7 @@ virus_align2
 seq_plot <- ggmsa(virus_align2, start = 490, end = 550, char_width = 0.5, seq_name = F) + geom_seqlogo() + geom_msaBar()
 
 
+if (!require("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
 
+BiocManager::install("biomaRt")
