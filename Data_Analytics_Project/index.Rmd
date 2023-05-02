@@ -256,7 +256,15 @@ Heres a look at the multiple alignment:</font>
 ```{r}
 multiple_virus_align
 ```
-## Constructing Phylogenetic Trees
+The function `ggmsa` gives a more visual representation of the genome alignment. Here I have selected a segment from nucleotide 2060 - 2080, a region of much differentiation between viruses. This goes to show how different the genomes of viruses, even within the same families, and orders can be at strategic locations. The colored boxes reflect where nucleotides overlap between sequences and species. 
+```{r, eval=FALSE}
+ggmsa(multiple_virus_align, start = 2060, end = 2080)
+```
+```{r, echo=FALSE}
+knitr::include_graphics("./Output/align_plot.png")
+```
+
+## Step 6: Constructing Phylogenetic Trees
 <font size="3"> At last my friends, we begin to make phylogenetic trees!</font>
 
 ### Constructing a Phylogenetic Tree Using Distance Based Methods
@@ -486,39 +494,260 @@ parsimony(c(treeRA, treeNJ, treeRatchet, fit_mt$tree), viruses)
 ```
 Just based on parsimony score, it appears that `treeRA` and `treeRatchet` may outperform `fit_mt$tree`. But that is not necessarily the case. Parsimony score is only based on changes in the data. Not necessarily how representative of the data the tree actually is. Because `fit_mt$tree` was generated from the best fitting model of over 95 simulated models, I have a gut feeling it is going to be the best tree, because it most likely is using the best model. 95 models were tested against the data using the `mt` and `pml_bb` method and only one model was used with the other methods, so I choose the fit_mt$tree. Basically parsimony score gives us an idea of how well the tree represents the data but it isn't everything, its just one measure and several of the methods have very close parsimony scores nonetheless. Based on just parsimony score however `treeRatchet` is the front runner. 
 
+Another thing that gives fit_mt$tree an advantage is that ultrafast bootstrapping is also conducted by default. Bootstrapping is yet another way to test for model validity. Bootstrap values in essence tell how many times out of 100 the same branch in the same position would be observed with re sampled data, this is expressed as a percentage in decimal form. A boot strap value above .95 is best. 
+
+Lets have a look at fit_mt$tree:
 
 
-I want to work with this object with functions from the seqinr package so Ill need to do a little more tweaking with a function called msaConvert
-I will name the new object I am creating virus_align_seqinr so that I can get it all straight
-the output is incredibly long there are 220 genomes here... so I will not show you.....youre welcome!
-
-## Representing my multiple sequence alingment as an R plot  
-using ggmsa package (and function) to plot my virus_alignment... not the one that has been adjusted for seqinR, only the original alignment will allow for this to work correctly:
-
-## Creating a genetic distance matrix
-Genetic distance is another way of saying evolutionary distance, or how closely two organisms are related. Phylogenetic trees visually explain genetic distance. 
-In simple terms, the more alike the genomes are (more nucleotides that are the same, the less genetic distance there is between them and the less evolution has occured)
-
-I will calculate the genetic distance of my viral genomes from eachother using the DistanceMatrix() function. 
-
-an object of class 'dist' is produced
-
-The matrix will be easier to view if it is rounded off... we can use the round function for that
-
-## Building a phylogenetic tree.... Finally!
-There are many methods of building a phylogenetic tree, I will use the neighbor joininng algorithm (nj()). This will use genetic distances to cluster sequences into clades
-
-I will not use rounded values to build by phylogenetic tree
-
-#Plotting The Phylogenetic Tree
-Using the plot.phylo() function to create the phylogenetic tree, and adding a label
-
-The tree is now rooted with groups defined, but the branch lengths still have absolutely no meaning. 
-
-We can include information about branch length by using use.edge.length = T
-
-The length of branches now reflect evolutionary distances/relationships between the viruses. 
-
-**only the vertical lines have meaning**
+```{r, echo=FALSE, out.height=750, out.width=500}
+knitr::include_graphics("./Output/boot_fit_mt_tree.png")
+```
 
 
+This phylogenetic tree shows the evolutionary relationship of viruses in the order Mononegavirales. Nodes (spots where 2 branches/lines diverge) represent that last common ancestor of that species. Viruses that share a more recent common ancestor, are more closely related. Viruses that have a common ancestor farther back (toward the left) on the tree are less related. Thus time should be thought of as passing from the left to the right on this tree. Organisms farther to the right are more recently diverged, and organisms toward the left are less recently diverged.
+
+
+
+
+
+<font size = "4"> **Below you can scroll over the tree to zoom in on organism names**
+
+<html>
+<head>
+<meta name="viewport" content="width=Kdevice-width, initial-scale=1.0">
+<style>
+* {box-sizing: border-box;}
+
+.img-zoom-container {
+  position: relative;
+   
+}
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 150px;
+  height: 50px;
+}
+.img-zoom-result {
+position: relative;
+border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 800px;
+  height: 300px;
+}
+</style>
+<script>
+function imageZoom(imgID, resultID) {
+  var img, lens, result, cx, cy;
+  img = document.getElementById(imgID);
+  result = document.getElementById(resultID);
+  /*create lens:*/
+  lens = document.createElement("DIV");
+  lens.setAttribute("class", "img-zoom-lens");
+  /*insert lens:*/
+  img.parentElement.insertBefore(lens, img);
+  /*calculate the ratio between result DIV and lens:*/
+  cx = result.offsetWidth / lens.offsetWidth;
+  cy = result.offsetHeight / lens.offsetHeight;
+  /*set background properties for the result DIV:*/
+  result.style.backgroundImage = "url('" + img.src + "')";
+  result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+  /*execute a function when someone moves the cursor over the image, or the lens:*/
+  lens.addEventListener("mousemove", moveLens);
+  img.addEventListener("mousemove", moveLens);
+  /*and also for touch screens:*/
+  lens.addEventListener("touchmove", moveLens);
+  img.addEventListener("touchmove", moveLens);
+  function moveLens(e) {
+    var pos, x, y;
+    /*prevent any other actions that may occur when moving over the image:*/
+    e.preventDefault();
+    /*get the cursor's x and y positions:*/
+    pos = getCursorPos(e);
+    /*calculate the position of the lens:*/
+    x = pos.x - (lens.offsetWidth / 2);
+    y = pos.y - (lens.offsetHeight / 2);
+    /*prevent the lens from being positioned outside the image:*/
+    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+    if (x < 0) {x = 0;}
+    if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+    if (y < 0) {y = 0;}
+    /*set the position of the lens:*/
+    lens.style.left = x + "px";
+    lens.style.top = y + "px";
+    /*display what the lens "sees":*/
+    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="img-zoom-container">
+  <img id="myimage2" src="boot_fit_mt_tree.jpg" width="200" height="440">
+  <div id="myresult2" class="img-zoom-result"></div>
+</div>
+
+
+
+<script>
+// Initiate zoom effect:
+imageZoom("myimage2", "myresult2");
+</script>
+
+</body>
+</html>
+
+<font size="3">Let's explore this phylogeny in a few other formats. You can build a phylogenetic tree which can be navigated with the package `Phylocanvas`. 
+
+Here is a circular tree:
+```{r, echo = F, out.height=600, out.width=800}
+readRDS("./Output/phylocanvas_circular")
+```
+There's also a diagonal format (this one is less readable:
+```{r, echo=FALSE}
+readRDS("./Output/phylo_diagonal")
+```
+And radial format (even less readable): </font>
+```{r, echo=FALSE}
+readRDS("./Output/phylo_radial")
+```
+
+## So What's The Big Deal?
+<font size="3"> Now is the time that we get to admire the significance, and explanatory power that phylogenetic trees provide. 
+
+To accomplish this, lets look back at how the different families of viruses fit within my phylogeny. I am going to use the rectangular format because it is easier to read and track. 
+
+The `ape` package includes the function `zoom` which allows us to pinpoint specific subsets of organisms within a tree. Let's hone in on each of our families and see where they fit in the evolutionary history of Mononegavirales. 
+
+To do this I am going to create a subset from my original data table of viruses that are in each family. I am then going to 'zoom' in on these viruses in my optimized model generated tree `fit_mt$tree`. Here is the code for a zoom on the family Filoviridae:
+
+```{r, echo=FALSE}
+filos <- df %>% filter(virus_family=="Filoviridae")
+filos <- filos$virus_species
+ape::zoom(fit_mt$tree, filos, cex=.5, no.margin=T)
+```
+
+As you can see the Filoviruses make a clade toward the center of the tree. This makes sense seeing as the Filoviruses comprise a family and so they are going to be more related to eachother than viruses of other families. 
+
+This is a sign that my phylogenetic tree is strong, and a good fit for my data set. 
+
+Let's do it for the other families.
+
+Artoviridae:
+
+```{r, out.width=1000, out.height=600, echo=FALSE}
+art <- df %>% filter(virus_family=="Artoviridae")
+art <- art$virus_species
+ape::zoom(fit_mt$tree, art, no.margin=T, cex=.5)
+```
+The Artoviridae are clustered together as well in a small clade toward the top of the tree. This means the are very closely related (evolutionarily speaking)
+
+Bornaviridae:
+
+```{r, out.width=1000, out.height=600, echo=FALSE}
+born <- df %>% filter(virus_family=="Bornaviridae")
+born <- born$virus_species
+ape::zoom(fit_mt$tree, born, no.margin=T, cex=.5)
+```
+
+The Bornaviruses again show clustering in a clade. It is very clear that all Bornaviruses descend from one single node. Thus all Bornaviruses share one single and distinct common ancestor that virusese from no other family in the order Mononegavirales share. 
+
+Lispiviridae:
+
+```{r. out.width=1000, out.height=600, echo=FALSE}
+born <- df %>% filter(virus_family=="Bornaviridae")
+born <- born$virus_species
+ape::zoom(fit_mt$tree, born, no.margin=T, cex=.5)
+```
+
+Lispiviruses have one basal taxon (one organism descending by itself from a node; a single branch descending from a node) and a clade descending from one single last common ancestor. The basal taxon may be perhaps less derived, or the most primitive of the lispiviruses, while the clade represents more and more divergence as one looks on the tree from left to right. 
+
+Mymonaviridae:
+
+```{r, out.width=1000, out.height = 600, echo=FALSE}
+mym <- df %>% filter(virus_family=="Mymonaviridae")
+mym <- mym$virus_species
+ape::zoom(fit_mt$tree, mym, no.margin=T, cex=.5)
+```
+
+Mymonaviruses are quite interesting. 2 distinct clades descend from 2 distinct common ancestors. This shows that viruses in the clade Lispiviridae despite being in the same familya are actually quite diverse. Evolutionarily speaking. 
+
+
+Nyamiviridae:
+
+```{r, out.width=1000, out.height=600, echo=FALSE}
+nyam <- df %>% filter(virus_family=="Nyamiviridae")
+nyam <- nyam$virus_species
+ape::zoom(fit_mt$tree, nyam, no.margin=T, cex=.5)
+```
+
+Nyamiviruses are quite diverse as well. There are two main clades descending from a single node, but it seems that viruses in this family are numerous and have become more and more derived over time. It would be scientifically intersting to study viruses from these two different clades. Species and family demarcation criteria is set by the ICTV (International committee on the taxonomy of viruses), it would be especially intriguing to compare these classifications to the actual characteristic, and phenotypic differences of these viruses, seeing as some of them are so evolutionarily distant from each other. 
+
+Paramyxoviridae:
+
+```{r, out.width=1000, out.height=600, echo=FALSE}
+para <- df %>% filter(virus_family=="Paramyxoviridae")
+para <- para$virus_species
+ape::zoom(fit_mt$tree, para, no.margin=T, cex=.5)
+```
+
+Paramyxoviruses comprise the center portion of the tree. It seems there are two main clades, with several subclades branching off from each. Thus, each paramyxovirus is part of 1 of two main lineages of virus. 
+
+Pneumoviridae:
+
+```{r,echo=FALSE}
+pneu <- df %>% filter(virus_family=="Pneumoviridae")
+pneu <- pneu$virus_species
+ape::zoom(fit_mt$tree, pneu, font=3, no.margin=T, cex=.5)
+```
+
+Pneumoviruses again form one main cluster or clade of taxa. Thus all of these viruses are very closely related, and there is not as much diversity within the family as with other families (again evolutionarily speaking)
+
+Sunshinevirus:
+There is only one sunshine virus in the data set, so the label will not be shown. The virus name is ironically "Sunshine Virus". The red line is where it belongs in the tree. 
+
+```{r, echo=FALSE, warning=FALSE}
+sun <- df %>% filter(virus_family=="Sunshinevirus")
+sun <- sun$virus_species
+ape::zoom(fit_mt$tree, sun, font=3, no.margin=T, show.tip.label = T, cex=.5)
+```
+
+It seems like the Sunshine virus is just hanging out in the middle of what will farther on be classified as the Rhabdoviruses. Obviously it must share some similarity genomically with the Rhabdoviruses and must be most closely related to the Rhabdoviruses based on this phylogeny and its placement. A phylogeny is again a visual, spacial, hypothesis. 
+
+Xinmoviridae:
+
+```{r, echo=FALSE}
+xin <- df %>% filter(virus_family=="Xinmoviridae")
+xin <- xin$virus_species
+ape::zoom(fit_mt$tree, xin, font=3, no.margin=T, cex = .5)
+```
+
+Xinmoviruses have 3 main branches, this family however contains very few viruses, perhaps that is just because full genomes have not been sequenced yet, or the virus is not very prevalent. Either way, it seems each Xinmovirus belongs to one of 3 lineages. 
+
+Rhabdoviridae:
+
+```{r, echo=FALSE}
+rhab <- df %>% filter(virus_family=="Rhabdoviridae")
+rhab <- rhab$virus_species
+ape::zoom(fit_mt$tree, rhab, font=3, no.margin=T, cex = .5)
+```
+
+Last but not least are Rhabdoviruses. The representation of Rhabdoviruses in this tree does justice to what they truly are. Rhabdoviruses are a monstrous clade of very diverse viruses. There are many clades and subclades, and like in this picture, there are not really any main clades that truly stand out. Rhabdoviruses are kind of this big mess of extremely diverse, extremely vast viruses. Some Rhabdoviruses even exist in plant host and are vectored by arthropods (not included in this data set). Its interesting to see that even though Rhabdoviruses are such a giant in the Mononegavirales world they do remain clustered together, there is something that they share genomically that makes them Rhabdoviruses not just characteristically. Genomics are truly just another piece in the never ending puzzle of the human understanding of biology.</font>
+
+## Conclusion
+<font size="3"> Phylogenies and their visual representation as phylogenetic trees are a tool of ever growing importance to the Biology, Ecology, Virology, Epidemiology, Entomology and their respective communities. These trees are an easy to understand, visual way of representing the evolutionary relationships between organisms, which has many important, useful and beneficial applications, especially to the preservation of public health. In a world of continual concern, understanding the phylogenetic histories and relationships of potentially dangerous viral agents is crucial to sustaining healthy communities around the globe. 

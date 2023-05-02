@@ -5,7 +5,8 @@ library(ape)
 library(phangorn)
 
 #read in the Decipher nucleotide alignment
-viruses <- read.phyDat(file = "./Data_Analytics_Project/Data/virus_align.FASTA",
+
+viruses<- read.phyDat(file = "./Data_Analytics_Project/Data/virus_align.FASTA",
                         format = "fasta")
 
 #building the first tree with distance based methods 
@@ -61,6 +62,7 @@ add.scale.bar()
 
 #random addition tree 
 treeRA <- random.addition(viruses)
+saveRDS(treeRA, "./Data_Analytics_Project/Output/treeRA")
 #finds the optimum parsimony
 treeSPR  <- optim.parsimony(treeRA, viruses)
 parsimony(c(treeRA, treeSPR), viruses)
@@ -74,6 +76,7 @@ saveRDS(mt, "./Data_Analytics_Project/Output/mt")
 #use an optimized model to make a tree 
 fit_mt <- pml_bb(mt, control = pml.control(trace = 0))
 fit_mt
+
 
 
 #task view phylogeny plotly tree thing 
@@ -93,12 +96,6 @@ library(dplyr)
 Filos <- table %>% filter(virus_family =="Filoviridae")
 Filos[,"virus_species"]
 ape::zoom(treeRatchet, focus = Filos[,"virus_species"], no.margin=T, cex=.8)
-
-
-library(idendr0)
-
-
-
 
 plots <- ggtree(treeRatchet, aes(type='phylogram'))+
   theme(plot.margin = unit(c(0,0,0,0),'mm'))+geom_tiplab(size=1)
